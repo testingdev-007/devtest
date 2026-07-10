@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facilitator Setup Guide — NovaPay Workshop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0B0F1A;
+      --surface:   #131929;
+      --card:      #1A2235;
+      --border:    rgba(255,255,255,0.08);
+      --accent:    #6C63FF;
+      --green:     #00C896;
+      --amber:     #FFB547;
+      --red:       #FF4757;
+      --white:     #FFFFFF;
+      --text:      rgba(255,255,255,0.88);
+      --muted:     rgba(255,255,255,0.45);
+      --code-bg:   #0D1117;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .layout { display: flex; min-height: 100vh; }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 230px;
+      flex-shrink: 0;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 28px 0;
+    }
+
+    .sidebar-logo {
+      padding: 0 20px 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+
+    .logo-mark { font-size: 1.1em; font-weight: 800; letter-spacing: -0.04em; color: var(--accent); }
+    .logo-mark span { color: var(--white); }
+    .logo-sub { font-size: 0.68em; color: var(--muted); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.07em; }
+
+    .nav-section { padding: 0 12px; margin-bottom: 6px; }
+    .nav-label { font-size: 0.6em; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 0 8px; margin-bottom: 5px; }
+
+    .nav-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 7px 10px; border-radius: 8px;
+      text-decoration: none; color: var(--text);
+      font-size: 0.8em; font-weight: 500;
+      transition: background 0.15s;
+    }
+    .nav-item:hover { background: rgba(255,255,255,0.05); color: var(--white); }
+
+    .nav-num {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(108,99,255,0.2); color: var(--accent);
+      font-size: 0.7em; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ── CONTENT ── */
+    .content { flex: 1; min-width: 0; padding: 48px 56px; max-width: 820px; }
+
+    .page-header { margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+    .page-eyebrow { font-size: 0.7em; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .page-title { font-size: 2em; font-weight: 800; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 12px; }
+    .page-desc { color: var(--muted); font-size: 0.92em; max-width: 540px; line-height: 1.6; }
+
+    /* ── PHASE ── */
+    .phase { margin-bottom: 52px; }
+
+    .phase-header {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 24px; padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .phase-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2em; flex-shrink: 0;
+    }
+
+    .phase-title { font-size: 1.2em; font-weight: 800; letter-spacing: -0.03em; }
+    .phase-sub { font-size: 0.8em; color: var(--muted); margin-top: 2px; }
+
+    /* ── STEPS ── */
+    .steps { display: flex; flex-direction: column; gap: 14px; }
+
+    .step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 22px;
+      display: flex;
+      gap: 16px;
+    }
+
+    .step-num {
+      width: 32px; height: 32px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85em; font-weight: 800;
+      flex-shrink: 0; margin-top: 1px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .step-content { flex: 1; }
+
+    .step-title { font-weight: 700; font-size: 0.95em; margin-bottom: 6px; }
+
+    .step-body { font-size: 0.87em; color: var(--text); line-height: 1.65; }
+    .step-body p + p { margin-top: 8px; }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85em;
+      background: rgba(108,99,255,0.15);
+      color: #A89CFF;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-top: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8em;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.75);
+      overflow-x: auto;
+    }
+
+    .callout {
+      margin-top: 12px;
+      background: rgba(108,99,255,0.1);
+      border: 1px solid rgba(108,99,255,0.25);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.84em;
+      line-height: 1.6;
+    }
+
+    .callout.warn {
+      background: rgba(255,181,71,0.1);
+      border-color: rgba(255,181,71,0.25);
+      border-left-color: var(--amber);
+    }
+
+    .callout.ok {
+      background: rgba(0,200,150,0.1);
+      border-color: rgba(0,200,150,0.25);
+      border-left-color: var(--green);
+    }
+
+    .callout-label {
+      font-weight: 700; font-size: 0.75em; letter-spacing: 0.07em;
+      text-transform: uppercase; margin-bottom: 5px;
+    }
+
+    .callout-label.accent { color: var(--accent); }
+    .callout-label.warn   { color: var(--amber); }
+    .callout-label.ok     { color: var(--green); }
+
+    /* ── CHECKLIST ── */
+    .checklist { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+
+    .check-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.87em; line-height: 1.5;
+    }
+
+    .check-box {
+      width: 18px; height: 18px; border-radius: 5px;
+      border: 2px solid rgba(255,255,255,0.2);
+      flex-shrink: 0; margin-top: 2px;
+    }
+
+    /* ── TABLE ── */
+    .info-table { width: 100%; border-collapse: collapse; font-size: 0.85em; margin-top: 10px; }
+    .info-table th { text-align: left; font-size: 0.7em; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 10px 14px; border-bottom: 1px solid var(--border); }
+    .info-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .info-table tr:last-child td { border-bottom: none; }
+
+    .badge { display: inline-block; font-size: 0.68em; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 9px; border-radius: 100px; }
+    .badge-green { background: rgba(0,200,150,0.15); color: var(--green); }
+    .badge-amber { background: rgba(255,181,71,0.15); color: var(--amber); }
+
+    hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+    @media print {
+      .sidebar { display: none; }
+      .content { padding: 24px; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+
+  <nav class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-mark">nova<span>pay</span></div>
+      <div class="logo-sub">Facilitator Setup</div>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">Part 1 — Your account</div>
+      <a class="nav-item" href="#phase1"><div class="nav-num">1</div>Create GitHub account</a>
+    </div>
+    <div class="nav-section" style="margin-top:6px">
+      <div class="nav-label">Part 2 — Your org</div>
+      <a class="nav-item" href="#phase2"><div class="nav-num">2</div>Create organisation</a>
+      <a class="nav-item" href="#phase3"><div class="nav-num">3</div>Enable Copilot seats</a>
+      <a class="nav-item" href="#phase4"><div class="nav-num">4</div>Set the repo policy</a>
+    </div>
+    <div class="nav-section" style="margin-top:6px">
+      <div class="nav-label">Part 3 — The workshop</div>
+      <a class="nav-item" href="#phase5"><div class="nav-num">5</div>Create template repo</a>
+      <a class="nav-item" href="#phase6"><div class="nav-num">6</div>Add participants</a>
+      <a class="nav-item" href="#phase7"><div class="nav-num">7</div>Test end-to-end</a>
+    </div>
+    <div class="nav-section" style="margin-top:6px">
+      <div class="nav-label">Reference</div>
+      <a class="nav-item" href="#checklist"><div class="nav-num">✓</div>Pre-session checklist</a>
+    </div>
+  </nav>
+
+  <main class="content">
+
+    <div class="page-header">
+      <div class="page-eyebrow">NovaPay Workshop — Admin</div>
+      <div class="page-title">Facilitator Setup Guide</div>
+      <div class="page-desc">Start here if you have no GitHub account, no organisation, and no seats. This takes you from zero to a fully working workshop environment. Allow about 30–40 minutes.</div>
+    </div>
+
+    <!-- ── PHASE 1 ── -->
+    <div class="phase" id="phase1">
+      <div class="phase-header">
+        <div class="phase-icon" style="background:rgba(108,99,255,0.15)">👤</div>
+        <div>
+          <div class="phase-title">Part 1 — Your GitHub Account</div>
+          <div class="phase-sub">Skip this part if you already have one</div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num" style="background:rgba(108,99,255,0.2);color:var(--accent)">1</div>
+          <div class="step-content">
+            <div class="step-title">Create a free GitHub account</div>
+            <div class="step-body">
+              <p>Go to <code>github.com</code> → click <strong>Sign up</strong>. Enter your email, create a password, choose a username. Verify your email when the confirmation arrives.</p>
+              <div class="callout ok"><div class="callout-label ok">Free account is fine</div>You don't need a paid personal GitHub account. The Copilot seats come from the organisation plan you set up in Part 2.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PHASE 2 ── -->
+    <div class="phase" id="phase2">
+      <div class="phase-header">
+        <div class="phase-icon" style="background:rgba(0,200,150,0.15)">🏢</div>
+        <div>
+          <div class="phase-title">Part 2 — Create Your Organisation</div>
+          <div class="phase-sub">An org is where you manage members and Copilot seats centrally</div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num" style="background:rgba(0,200,150,0.2);color:var(--green)">2</div>
+          <div class="step-content">
+            <div class="step-title">Create a new organisation</div>
+            <div class="step-body">
+              <p>When logged in to GitHub, click the <strong>+</strong> icon in the top right → <strong>New organisation</strong>.</p>
+              <p>Choose the <strong>Free</strong> plan — you don't need a paid org plan. Copilot is added separately on top. Give the org a name (e.g. <code>novapay-workshop</code> or your programme name). Set it as belonging to your personal account.</p>
+              <div class="callout warn"><div class="callout-label warn">Choose your org name carefully</div>The org name appears in all your URLs and can't easily be changed later. Keep it short and relevant to your programme.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PHASE 3 ── -->
+    <div class="phase" id="phase3">
+      <div class="phase-header">
+        <div class="phase-icon" style="background:rgba(255,181,71,0.15)">💺</div>
+        <div>
+          <div class="phase-title">Part 3 — Enable Copilot Seats</div>
+          <div class="phase-sub">Purchase and configure seats for your participants</div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num" style="background:rgba(255,181,71,0.2);color:var(--amber)">3</div>
+          <div class="step-content">
+            <div class="step-title">Open Copilot settings in your org</div>
+            <div class="step-body">
+              <p>Go to your organisation page → <strong>Settings</strong> tab (along the top) → scroll down the left sidebar to <strong>Copilot</strong>.</p>
+              <p>Click <strong>Enable GitHub Copilot</strong> or <strong>Start free trial</strong> if available. Select <strong>GitHub Copilot Business</strong> and choose the number of seats you need — one per participant plus one for yourself to test with.</p>
+              <div class="callout"><div class="callout-label accent">Seat assignment is flexible</div>Seats are assigned per-person and can be reassigned. You only pay for seats you've allocated, so you can add them one at a time as participants confirm.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PHASE 4 ── -->
+    <div class="phase" id="phase4">
+      <div class="phase-header">
+        <div class="phase-icon" style="background:rgba(255,71,87,0.15)">⚙️</div>
+        <div>
+          <div class="phase-title">Part 4 — Set the Repo Policy</div>
+          <div class="phase-sub">Critical — without this, Copilot won't work in participants' personal repos</div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num" style="background:rgba(255,71,87,0.2);color:var(--red)">4</div>
+          <div class="step-content">
+            <div class="step-title">Allow Copilot in all repositories</div>
+            <div class="step-body">
+              <p>Still in your org's <strong>Settings → Copilot</strong>, find the <strong>Policies</strong> section.</p>
+              <p>Look for a setting about where Copilot can be used — it will say something like <strong>"Allow GitHub Copilot to be used in"</strong> with options. Make sure this is set to <strong>All repositories</strong>, not just org-owned ones.</p>
+              <div class="callout warn"><div class="callout-label warn">This step is easy to miss</div>Participants will be working in their own personal repos (copies of your template). If this is set to org repos only, Copilot will silently not work for them. Check this before the session.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PHASE 5 ── -->
+    <div class="phase" id="phase5">
+      <div class="phase-header">
+        <div class="phase-icon" style="background:rgba(108,99,255,0.15)">📁</div>
+        <div>
+          <div class="phase-title">Part 5 — Create the Template Repo</div>
+          <div class="phase-sub">The repo participants will copy to get their own workspace</div>
+        </div>
+      </div>
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(108,99,255,0.2);color:var(--accent)">5</div>
+          <div class="step-content">
+            <div class="step-title">Create a new public repository</div>
+            <div class="step-body">
+              <p>Click <strong>+</strong> → <strong>New repository</strong>. Set the owner to <strong>your personal account</strong> (not the org). Name it <code>novapay-workshop</code>. Set it to <strong>Public</strong>. Tick <strong>Add a README file</strong>. Click <strong>Create repository</strong>.</p>
+              <div class="callout"><div class="callout-label accent">Why personal, not org?</div>Template repos work best from personal accounts for this setup. Participants use "Use this template" to copy it to their own account — keeping it personal and clean.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(108,99,255,0.2);color:var(--accent)">6</div>
+          <div class="step-content">
+            <div class="step-title">Upload the dashboard file</div>
+            <div class="step-body">
+              <p>On your new repo page, click <strong>Add file → Upload files</strong>. Drag in <code>bank-dashboard.html</code>. Scroll down and click <strong>Commit changes</strong>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(108,99,255,0.2);color:var(--accent)">7</div>
+          <div class="step-content">
+            <div class="step-title">Add the Codespaces config file</div>
+            <div class="step-body">
+              <p>Click <strong>Add file → Create new file</strong>. In the filename box type exactly:</p>
+              <pre>.devcontainer/devcontainer.json</pre>
+              <p style="margin-top:8px">Typing the <code>/</code> automatically creates the folder. Then paste this into the file content area:</p>
+              <pre>{
+  "name": "NovaPay Workshop",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.live-server",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ],
+      "settings": {
+        "liveServer.settings.port": 5500,
+        "liveServer.settings.donotShowInfoMsg": true
+      }
+    }
+  },
+  "forwardPorts": [5500]
+}</pre>
+              <p style="margin-top:8px">Click <strong>Commit new file</strong>.</p>
+              <div class="callout ok"><div class="callout-label ok">What this does</div>This file tells Codespaces to automatically install Live Server and Copilot extensions every time someone opens a new workspace. Without it, participants would have to install extensions manually.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(108,99,255,0.2);color:var(--accent)">8</div>
+          <div class="step-content">
+            <div class="step-title">Make it a template repository</div>
+            <div class="step-body">
+              <p>Go to your repo's <strong>Settings</strong> tab → scroll to the <strong>General</strong> section → tick <strong>Template repository</strong>. It saves automatically.</p>
+              <p>Your repo page will now show a <strong>Use this template</strong> button. That's what participants click.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── PHASE 6 ── -->
+    <div class="phase" id="phase6">
+      <div class="phase-header">
+        <div class="phase-icon" style="background:rgba(0,200,150,0.15)">👥</div>
+        <div>
+          <div class="phase-title">Part 6 — Add Participants</div>
+          <div class="phase-sub">Invite to org and assign Copilot seats</div>
+        </div>
+      </div>
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(0,200,150,0.2);color:var(--green)">9</div>
+          <div class="step-content">
+            <div class="step-title">Collect GitHub usernames in advance</div>
+            <div class="step-body">
+              <p>Before the session, ask participants to create a GitHub account and send you their username. Even a quick message the day before helps enormously — it means seats are assigned before they walk in.</p>
+              <div class="callout warn"><div class="callout-label warn">Age note</div>GitHub's minimum age is 13. For any 12-year-old participants, create a GitHub account in advance yourself (use a programme email address) and hand them the login on the day. Pre-assign a seat to that account.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(0,200,150,0.2);color:var(--green)">10</div>
+          <div class="step-content">
+            <div class="step-title">Invite participants to your org</div>
+            <div class="step-body">
+              <p>Go to your org page → <strong>People</strong> tab → <strong>Invite member</strong>. Enter each participant's GitHub username or email address. Set their role to <strong>Member</strong>.</p>
+              <p>They'll receive an email invitation to join. They need to accept it before you can assign them a Copilot seat.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(0,200,150,0.2);color:var(--green)">11</div>
+          <div class="step-content">
+            <div class="step-title">Assign Copilot seats</div>
+            <div class="step-body">
+              <p>Org <strong>Settings → Copilot → Seat management</strong>. Click <strong>Add users</strong>. Select each participant's account and confirm.</p>
+              <p>Once assigned, Copilot is active on their account — they can use it in any repo they work in (because you set the policy to all repositories in step 4).</p>
+              <div class="callout ok"><div class="callout-label ok">Seat assignment takes effect immediately</div>No waiting, no restart needed. As soon as you assign the seat, Copilot works for that user.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── PHASE 7 ── -->
+    <div class="phase" id="phase7">
+      <div class="phase-header">
+        <div class="phase-icon" style="background:rgba(255,181,71,0.15)">🧪</div>
+        <div>
+          <div class="phase-title">Part 7 — Test End-to-End</div>
+          <div class="phase-sub">Do this yourself before the session — ideally the day before</div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num" style="background:rgba(255,181,71,0.2);color:var(--amber)">12</div>
+          <div class="step-content">
+            <div class="step-title">Run the full participant flow yourself</div>
+            <div class="step-body">
+              <div class="checklist">
+                <div class="check-item"><div class="check-box"></div><span>Go to your repo URL and click <strong>Use this template</strong></span></div>
+                <div class="check-item"><div class="check-box"></div><span>Create a test repo (call it <code>test-novapay</code>), set to Public</span></div>
+                <div class="check-item"><div class="check-box"></div><span>Click <strong>Code → Codespaces → Create codespace on main</strong></span></div>
+                <div class="check-item"><div class="check-box"></div><span>Wait for the Codespace to load (1–2 minutes first time)</span></div>
+                <div class="check-item"><div class="check-box"></div><span>Right-click <code>bank-dashboard.html</code> → <strong>Open with Live Server</strong></span></div>
+                <div class="check-item"><div class="check-box"></div><span>Confirm the NovaPay dashboard appears in a browser preview tab</span></div>
+                <div class="check-item"><div class="check-box"></div><span>Click the Copilot icon in the left sidebar — confirm Chat opens</span></div>
+                <div class="check-item"><div class="check-box"></div><span>Type a test message in Chat — confirm it responds</span></div>
+                <div class="check-item"><div class="check-box"></div><span>Delete the test repo when done (Settings → scroll to bottom → Delete)</span></div>
+              </div>
+              <div class="callout ok" style="margin-top:14px"><div class="callout-label ok">If everything above works, you're ready</div>Write down your template repo URL: <code>github.com/YOUR-USERNAME/novapay-workshop</code> — that's the only URL you need to share on the day.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- ── CHECKLIST ── -->
+    <div class="phase" id="checklist">
+      <div class="phase-header">
+        <div class="phase-icon" style="background:rgba(108,99,255,0.15)">✅</div>
+        <div>
+          <div class="phase-title">Pre-Session Checklist</div>
+          <div class="phase-sub">Run through this the morning of the session</div>
+        </div>
+      </div>
+
+      <div class="step" style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px">
+        <div class="step-content">
+          <table class="info-table">
+            <thead><tr><th>Item</th><th>Status check</th></tr></thead>
+            <tbody>
+              <tr><td>Template repo is public and has "Use this template" button</td><td><span class="badge badge-green">Verify</span></td></tr>
+              <tr><td><code>bank-dashboard.html</code> is in the repo root</td><td><span class="badge badge-green">Verify</span></td></tr>
+              <tr><td><code>.devcontainer/devcontainer.json</code> is in the repo</td><td><span class="badge badge-green">Verify</span></td></tr>
+              <tr><td>Copilot policy set to allow all repositories</td><td><span class="badge badge-amber">Critical</span></td></tr>
+              <tr><td>All participant accounts have been invited to org</td><td><span class="badge badge-amber">Critical</span></td></tr>
+              <tr><td>All participants have accepted the org invite</td><td><span class="badge badge-amber">Critical</span></td></tr>
+              <tr><td>All participant accounts have a Copilot seat assigned</td><td><span class="badge badge-amber">Critical</span></td></tr>
+              <tr><td>Repo URL written down / on a slide ready to share</td><td><span class="badge badge-green">Verify</span></td></tr>
+              <tr><td>bug-hunt-screen.html open in a browser tab ready to project</td><td><span class="badge badge-green">Verify</span></td></tr>
+              <tr><td>facilitator-reference.html open on a second device</td><td><span class="badge badge-green">Verify</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
