@@ -4,86 +4,110 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NovaPay Workshop — All Materials</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #0B0F1A; --surface: #131929; --card: #1A2235;
       --border: rgba(255,255,255,0.08); --border-hover: rgba(108,99,255,0.4);
       --accent: #6C63FF; --green: #00C896; --amber: #FFB547; --red: #FF4757;
+      --blue: #4FC3F7;
       --white: #FFFFFF; --text: rgba(255,255,255,0.88); --muted: rgba(255,255,255,0.45);
     }
-    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
-    /* HEADER */
-    .app-header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding-bottom: 64px; }
+
+    /* ── HEADER ── */
+    .app-header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; }
     .logo { font-size: 1.2em; font-weight: 800; letter-spacing: -0.04em; color: var(--accent); }
     .logo span { color: var(--white); }
     .header-sub { font-size: 0.78em; color: var(--muted); }
 
-    /* HERO */
-    .hero { max-width: 860px; margin: 0 auto; padding: 56px 32px 40px; }
+    /* ── HERO ── */
+    .hero { max-width: 900px; margin: 0 auto; padding: 56px 32px 32px; }
     .hero-eyebrow { font-size: 0.72em; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
     .hero-title { font-size: 2.4em; font-weight: 800; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 14px; }
-    .hero-desc { font-size: 0.95em; color: var(--muted); max-width: 520px; line-height: 1.65; }
+    .hero-desc { font-size: 0.95em; color: var(--muted); max-width: 540px; line-height: 1.65; }
 
-    /* STATS ROW */
-    .stats { display: flex; gap: 24px; max-width: 860px; margin: 0 auto; padding: 0 32px 48px; flex-wrap: wrap; }
+    /* ── STATS ── */
+    .stats { display: flex; gap: 16px; max-width: 900px; margin: 0 auto; padding: 0 32px 40px; flex-wrap: wrap; }
     .stat { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 20px; }
-    .stat-num { font-size: 1.6em; font-weight: 800; letter-spacing: -0.03em; }
-    .stat-label { font-size: 0.72em; color: var(--muted); margin-top: 2px; }
+    .stat-num { font-size: 1.5em; font-weight: 800; letter-spacing: -0.03em; }
+    .stat-label { font-size: 0.7em; color: var(--muted); margin-top: 2px; }
 
-    /* MAIN */
-    .main { max-width: 860px; margin: 0 auto; padding: 0 32px 64px; display: flex; flex-direction: column; gap: 48px; }
+    /* ── SCAFFOLDING STRIP ── */
+    .scaffold-strip { max-width: 900px; margin: 0 auto 40px; padding: 0 32px; }
+    .scaffold-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .scaffold-title { font-size: 0.72em; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); }
+    .scaffold-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+    .year-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+    .year-label { font-size: 0.78em; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .year-item { font-size: 0.72em; color: var(--muted); line-height: 1.55; display: flex; gap: 6px; margin-bottom: 5px; }
+    .year-item::before { content: '→'; color: var(--accent); flex-shrink: 0; }
+    .year-item.stretch { color: rgba(255,255,255,0.55); }
+    .year-item.stretch::before { content: '✦'; color: var(--amber); }
 
-    /* SECTION */
-    .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-    .section-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1em; flex-shrink: 0; }
-    .section-title { font-size: 1.05em; font-weight: 800; letter-spacing: -0.02em; }
-    .section-sub { font-size: 0.78em; color: var(--muted); margin-top: 2px; }
+    /* ── MAIN ── */
+    .main { max-width: 900px; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: column; gap: 56px; }
 
-    /* CARD GRID */
-    .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .card-grid.single { grid-template-columns: 1fr; }
+    /* ── SECTION ── */
+    .section-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--card); border: 1px solid var(--border); border-radius: 100px; padding: 5px 14px 5px 10px; margin-bottom: 18px; }
+    .section-tag-num { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75em; font-weight: 800; flex-shrink: 0; }
+    .section-tag-label { font-size: 0.72em; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+    .section-title { font-size: 1.25em; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 6px; }
+    .section-desc { font-size: 0.85em; color: var(--muted); line-height: 1.6; margin-bottom: 22px; max-width: 600px; }
 
-    /* FILE CARD */
-    .file-card {
-      background: var(--card);
-      border: 1.5px solid var(--border);
-      border-radius: 14px;
-      padding: 22px;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      transition: border-color 0.18s, background 0.18s, transform 0.15s;
-      cursor: pointer;
-    }
+    /* ── FILE GRID ── */
+    .file-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .file-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+    .file-grid.single { grid-template-columns: 1fr; }
+
+    /* ── FILE CARD ── */
+    .file-card { background: var(--card); border: 1.5px solid var(--border); border-radius: 14px; padding: 20px 22px; text-decoration: none; display: flex; flex-direction: column; gap: 10px; transition: border-color 0.18s, background 0.18s, transform 0.15s; }
     .file-card:hover { border-color: var(--border-hover); background: #1E2840; transform: translateY(-2px); }
 
     .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
-    .card-icon { font-size: 1.5em; flex-shrink: 0; }
-    .card-badge { font-size: 0.65em; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; flex-shrink: 0; }
-    .badge-facilitator { background: rgba(108,99,255,0.15); color: var(--accent); }
-    .badge-participant  { background: rgba(0,200,150,0.15); color: var(--green); }
-    .badge-asset        { background: rgba(255,181,71,0.15); color: var(--amber); }
-    .badge-screen       { background: rgba(255,71,87,0.15); color: var(--red); }
+    .card-icon { font-size: 1.4em; flex-shrink: 0; }
+    .card-badges { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
+    .badge { font-size: 0.62em; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 3px 9px; border-radius: 100px; white-space: nowrap; }
+    .b-fac  { background: rgba(108,99,255,0.15); color: var(--accent); }
+    .b-par  { background: rgba(0,200,150,0.15);  color: var(--green); }
+    .b-scr  { background: rgba(255,71,87,0.15);  color: var(--red); }
+    .b-ast  { background: rgba(255,181,71,0.15); color: var(--amber); }
+    .b-new  { background: rgba(79,195,247,0.15); color: var(--blue); }
 
-    .card-title { font-size: 0.97em; font-weight: 700; color: var(--white); line-height: 1.3; }
-    .card-desc { font-size: 0.82em; color: var(--muted); line-height: 1.55; }
+    .card-title { font-size: 0.95em; font-weight: 700; color: var(--white); line-height: 1.3; }
+    .card-desc { font-size: 0.81em; color: var(--muted); line-height: 1.55; flex: 1; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--border); margin-top: 4px; }
+    .card-filename { font-family: 'JetBrains Mono', monospace; font-size: 0.7em; color: var(--muted); }
+    .card-arrow { color: var(--accent); font-size: 0.88em; font-weight: 700; }
 
-    .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; padding-top: 12px; border-top: 1px solid var(--border); }
-    .card-filename { font-family: 'JetBrains Mono', monospace; font-size: 0.72em; color: var(--muted); }
-    .card-arrow { color: var(--accent); font-size: 0.9em; font-weight: 700; }
+    /* ── ROLE STRIP (who uses what) ── */
+    .role-strip { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .role-pill { font-size: 0.72em; font-weight: 600; padding: 4px 12px; border-radius: 100px; border: 1px solid var(--border); color: var(--muted); }
 
-    /* WHEN TO USE STRIP */
-    .when-strip { background: rgba(108,99,255,0.08); border: 1px solid rgba(108,99,255,0.2); border-radius: 10px; padding: 14px 18px; font-size: 0.83em; color: var(--muted); line-height: 1.6; margin-top: 10px; }
-    .when-strip strong { color: var(--text); }
+    /* ── CALLOUT ── */
+    .callout { border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.84em; line-height: 1.65; }
+    .callout-amber { background: rgba(255,181,71,0.08); border: 1px solid rgba(255,181,71,0.2); }
+    .callout-green { background: rgba(0,200,150,0.08); border: 1px solid rgba(0,200,150,0.2); }
+    .callout-label { font-size: 0.68em; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 5px; }
+    .callout-label.amber { color: var(--amber); }
+    .callout-label.green { color: var(--green); }
 
-    hr { border: none; border-top: 1px solid var(--border); }
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 1px solid var(--border); }
 
-    /* FOOTER */
-    .footer { text-align: center; padding: 32px; font-size: 0.75em; color: var(--muted); border-top: 1px solid var(--border); }
+    /* ── COMING SOON ── */
+    .coming-card { background: rgba(108,99,255,0.05); border: 1.5px dashed rgba(108,99,255,0.25); border-radius: 14px; padding: 20px 22px; display: flex; align-items: center; gap: 14px; opacity: 0.7; }
+    .coming-icon { font-size: 1.4em; flex-shrink: 0; }
+    .coming-title { font-size: 0.92em; font-weight: 700; color: rgba(255,255,255,0.6); margin-bottom: 3px; }
+    .coming-desc { font-size: 0.78em; color: var(--muted); }
+
+    @media (max-width: 640px) {
+      .file-grid, .file-grid.three { grid-template-columns: 1fr; }
+      .scaffold-grid { grid-template-columns: 1fr 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -93,176 +117,255 @@
     <div class="header-sub">GitHub Copilot Workshop — All Materials</div>
   </header>
 
+  <!-- HERO -->
   <div class="hero">
     <div class="hero-eyebrow">Workshop Hub</div>
-    <div class="hero-title">Everything you need,<br>in one place.</div>
-    <div class="hero-desc">All session materials for the NovaPay GitHub Copilot workshop. Open any file directly — no downloads needed. Facilitator documents open best on a second screen or device.</div>
+    <div class="hero-title">Everything in one place.</div>
+    <div class="hero-desc">All materials for the NovaPay GitHub Copilot workshop. Three learning blocks, structured for Y9–Y13. Open any file directly in your browser.</div>
   </div>
 
+  <!-- STATS -->
   <div class="stats">
-    <div class="stat"><div class="stat-num" style="color:var(--accent)">4hrs</div><div class="stat-label">Session length</div></div>
+    <div class="stat"><div class="stat-num" style="color:var(--accent)">4 hrs</div><div class="stat-label">Total session</div></div>
     <div class="stat"><div class="stat-num" style="color:var(--green)">10</div><div class="stat-label">Bugs to find</div></div>
-    <div class="stat"><div class="stat-num" style="color:var(--amber)">12–18</div><div class="stat-label">Age range</div></div>
-    <div class="stat"><div class="stat-num" style="color:var(--text)">7</div><div class="stat-label">Files in this pack</div></div>
+    <div class="stat"><div class="stat-num" style="color:var(--amber)">3</div><div class="stat-label">Challenge rounds</div></div>
+    <div class="stat"><div class="stat-num" style="color:var(--red)">Y9–Y13</div><div class="stat-label">Age range</div></div>
+    <div class="stat"><div class="stat-num" style="color:var(--text)">9</div><div class="stat-label">Files in pack</div></div>
   </div>
 
-  <main class="main">
+  <!-- SCAFFOLDING STRIP -->
+  <div class="scaffold-strip">
+    <div class="scaffold-header">
+      <div class="scaffold-title">📊 Y9–Y13 scaffolding guide — what each year group is expected to achieve</div>
+    </div>
+    <div class="scaffold-grid">
 
-    <!-- BEFORE THE SESSION -->
-    <div>
-      <div class="section-header">
-        <div class="section-icon" style="background:rgba(108,99,255,0.15)">⚙️</div>
-        <div>
-          <div class="section-title">Before the session — setup</div>
-          <div class="section-sub">Complete these before anyone arrives</div>
-        </div>
+      <div class="year-card">
+        <div class="year-label" style="color:var(--green)">Y9 · Age 13–14</div>
+        <div class="year-item">Find bugs 1–6 with Copilot Chat help</div>
+        <div class="year-item">Use comments to drive Copilot</div>
+        <div class="year-item">Build a working feature with HTML + basic JS</div>
+        <div class="year-item stretch">Stretch: add CSS styling and a progress bar</div>
       </div>
-      <div class="card-grid">
 
-        <a class="file-card" href="facilitator-setup-guide.html">
-          <div class="card-top">
-            <div class="card-icon">🏢</div>
-            <span class="card-badge badge-facilitator">Facilitator</span>
-          </div>
-          <div class="card-title">GitHub Org &amp; Seat Setup Guide</div>
-          <div class="card-desc">Start here. Creates your GitHub organisation, enables Copilot seats, uploads the template repo, and assigns participants. Step-by-step from zero.</div>
-          <div class="card-footer">
-            <span class="card-filename">facilitator-setup-guide.html</span>
-            <span class="card-arrow">→</span>
-          </div>
-        </a>
-
-        <a class="file-card" href="session-plan.html">
-          <div class="card-top">
-            <div class="card-icon">📋</div>
-            <span class="card-badge badge-facilitator">Facilitator</span>
-          </div>
-          <div class="card-title">4-Hour Session Plan</div>
-          <div class="card-desc">Your full run sheet. Every block timed and scripted — what to say, what to put on screen, back-pocket ideas, and rescue plans if things go sideways.</div>
-          <div class="card-footer">
-            <span class="card-filename">session-plan.html</span>
-            <span class="card-arrow">→</span>
-          </div>
-        </a>
-
+      <div class="year-card">
+        <div class="year-label" style="color:var(--green)">Y10 · Age 14–15</div>
+        <div class="year-item">Find all 10 bugs independently</div>
+        <div class="year-item">Write specific, effective prompts</div>
+        <div class="year-item">Build a feature with input validation</div>
+        <div class="year-item stretch">Stretch: add event listeners and DOM manipulation</div>
       </div>
+
+      <div class="year-card">
+        <div class="year-label" style="color:var(--amber)">Y11 · Age 15–16</div>
+        <div class="year-item">Find bugs AND explain why each is wrong</div>
+        <div class="year-item">Critique Copilot output before accepting</div>
+        <div class="year-item">Build feature + write their own unit logic</div>
+        <div class="year-item stretch">Stretch: multiple features, error handling</div>
+      </div>
+
+      <div class="year-card">
+        <div class="year-label" style="color:var(--amber)">Y12 · Age 16–17</div>
+        <div class="year-item">Debug AND fix the logical/stretch bugs</div>
+        <div class="year-item">Prompt engineer for quality over speed</div>
+        <div class="year-item">Build with localStorage persistence</div>
+        <div class="year-item stretch">Stretch: multiple goals, simulated transfers</div>
+      </div>
+
+      <div class="year-card">
+        <div class="year-label" style="color:var(--red)">Y13 · Age 17–18</div>
+        <div class="year-item">Find bugs, fix, and refactor the function</div>
+        <div class="year-item">Use Copilot to review its own output</div>
+        <div class="year-item">Build full feature with API or localStorage</div>
+        <div class="year-item stretch">Stretch: loan calculator, fraud simulator, date logic</div>
+      </div>
+
     </div>
 
-    <!-- ON THE DAY: FACILITATOR -->
-    <div>
-      <div class="section-header">
-        <div class="section-icon" style="background:rgba(255,181,71,0.15)">🎯</div>
-        <div>
-          <div class="section-title">On the day — your reference materials</div>
-          <div class="section-sub">Keep these open on a second screen or device throughout the session</div>
-        </div>
+    <div class="callout callout-amber" style="margin-top:14px">
+      <div class="callout-label amber">Key pairing strategy</div>
+      Mix year groups within pairs where possible. Y13 explaining a concept to Y9 reinforces their own understanding — and Copilot Chat's plain-English explanations act as a natural scaffold for younger participants who don't need to ask you.
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- ═══════════════════════════════════
+         SECTION 1 — BUG FIX
+    ═══════════════════════════════════ -->
+    <section>
+      <div class="section-tag">
+        <div class="section-tag-num" style="background:var(--green);color:white">1</div>
+        <div class="section-tag-label" style="color:var(--green)">Hour 1 · Bug Fix</div>
       </div>
-      <div class="card-grid">
+      <div class="section-title">Find it. Fix it. Explain it.</div>
+      <div class="section-desc">Participants debug a real-looking banking dashboard with 10 embedded bugs across HTML, CSS, and JavaScript. Uses Copilot Chat as the primary tool. Runs for 30 minutes; share-out at the end.</div>
+
+      <div class="role-strip">
+        <span class="role-pill">👤 Participant — gets started, then bugs</span>
+        <span class="role-pill">📺 On screen — during bug hunt</span>
+        <span class="role-pill">💻 Asset — upload to GitHub</span>
+        <span class="role-pill">🔑 Facilitator — keep private</span>
+      </div>
+
+      <div class="file-grid">
+
+        <a class="file-card" href="participant-guide.html">
+          <div class="card-top"><div class="card-icon">👤</div><div class="card-badges"><span class="badge b-par">Participant</span></div></div>
+          <div class="card-title">Getting Started Guide</div>
+          <div class="card-desc">10 numbered steps from creating a GitHub account to actively fixing bugs. Written for Y9 upward — clear, no jargon. Put on screen at the very start or share the link.</div>
+          <div class="card-footer"><span class="card-filename">participant-guide.html</span><span class="card-arrow">→</span></div>
+        </a>
+
+        <a class="file-card" href="bug-hunt-screen.html">
+          <div class="card-top"><div class="card-icon">🔍</div><div class="card-badges"><span class="badge b-scr">On screen</span></div></div>
+          <div class="card-title">Bug Hunt Brief</div>
+          <div class="card-desc">Put this on the projector when the bug hunt starts and leave it up. Mission, approach steps, Copilot Chat prompts to try, and the difficulty ladder. Dark NovaPay theme.</div>
+          <div class="card-footer"><span class="card-filename">bug-hunt-screen.html</span><span class="card-arrow">→</span></div>
+        </a>
+
+        <a class="file-card" href="bank-dashboard.html">
+          <div class="card-top"><div class="card-icon">🏦</div><div class="card-badges"><span class="badge b-ast">Asset</span></div></div>
+          <div class="card-title">NovaPay Dashboard</div>
+          <div class="card-desc">The buggy banking app — 10 bugs across HTML, CSS, and JS. Upload to the root of your GitHub template repo as <code style="font-family:monospace;font-size:0.85em;background:rgba(108,99,255,0.15);color:#A89CFF;padding:1px 4px;border-radius:3px">bank-dashboard.html</code>. Do not fix the bugs first.</div>
+          <div class="card-footer"><span class="card-filename">bank-dashboard.html</span><span class="card-arrow">→</span></div>
+        </a>
 
         <a class="file-card" href="facilitator-reference.html">
-          <div class="card-top">
-            <div class="card-icon">🔑</div>
-            <span class="card-badge badge-facilitator">Facilitator</span>
-          </div>
+          <div class="card-top"><div class="card-icon">🔑</div><div class="card-badges"><span class="badge b-fac">Facilitator</span></div></div>
           <div class="card-title">Facilitator Reference</div>
-          <div class="card-desc">All 10 bugs with colour-coded diffs, plus the full Copilot "fix all" strategy — what to say, why Copilot won't catch everything, and how to turn it into a teaching moment.</div>
-          <div class="card-footer">
-            <span class="card-filename">facilitator-reference.html</span>
-            <span class="card-arrow">→</span>
-          </div>
+          <div class="card-desc">All 10 bugs with colour-coded before/after diffs, plus the full strategy for when someone asks Copilot to fix everything at once. Keep open on a second device.</div>
+          <div class="card-footer"><span class="card-filename">facilitator-reference.html</span><span class="card-arrow">→</span></div>
         </a>
 
         <a class="file-card" href="bug-answer-key.html">
-          <div class="card-top">
-            <div class="card-icon">🐛</div>
-            <span class="card-badge badge-facilitator">Facilitator</span>
-          </div>
+          <div class="card-top"><div class="card-icon">🐛</div><div class="card-badges"><span class="badge b-fac">Facilitator</span></div></div>
           <div class="card-title">Bug Answer Key</div>
-          <div class="card-desc">Quick-reference version of all 10 bugs. What's wrong, how to find it, and the exact fix for each — navigable by sidebar. Do not share with participants.</div>
-          <div class="card-footer">
-            <span class="card-filename">bug-answer-key.html</span>
-            <span class="card-arrow">→</span>
-          </div>
+          <div class="card-desc">Quick-reference card for all 10 bugs. Navigable sidebar, clean diffs. Use when a participant is stuck and you need to find the relevant bug fast.</div>
+          <div class="card-footer"><span class="card-filename">bug-answer-key.html</span><span class="card-arrow">→</span></div>
         </a>
 
       </div>
-    </div>
+    </section>
 
-    <!-- ON THE DAY: ON SCREEN -->
-    <div>
-      <div class="section-header">
-        <div class="section-icon" style="background:rgba(255,71,87,0.15)">📺</div>
-        <div>
-          <div class="section-title">On the day — put these on the projector</div>
-          <div class="section-sub">Open in a browser tab on the main screen and leave them up</div>
+    <hr class="divider">
+
+    <!-- ═══════════════════════════════════
+         SECTION 2 — LEVEL UP
+    ═══════════════════════════════════ -->
+    <section>
+      <div class="section-tag">
+        <div class="section-tag-num" style="background:var(--accent);color:white">2</div>
+        <div class="section-tag-label" style="color:var(--accent)">Bridge · Level Up ⚡</div>
+      </div>
+      <div class="section-title">Intro to Copilot, Codespaces &amp; GitHub</div>
+      <div class="section-desc">30 minutes between the bug fix and the build. Three competitive challenge rounds with countdown timers — Comment Race, Best Prompt, Bug Blitz. Teaches the skills participants need to build from scratch. Runs 1:00–1:30.</div>
+
+      <div class="role-strip">
+        <span class="role-pill">📺 On screen — click-through slide deck with timers</span>
+        <span class="role-pill">🔑 Facilitator — run sheet with scripted lines</span>
+      </div>
+
+      <div class="file-grid">
+
+        <a class="file-card" href="level-up-screen.html">
+          <div class="card-top"><div class="card-icon">⚡</div><div class="card-badges"><span class="badge b-scr">On screen</span><span class="badge b-new">New</span></div></div>
+          <div class="card-title">Level Up — Slide Deck</div>
+          <div class="card-desc">13 slides covering the reveal, GitHub and Codespaces concepts, all three challenge rounds, the golden rules, and the bridge to the build. Built-in countdown timers with pause/resume. Navigate with arrow keys or click.</div>
+          <div class="card-footer"><span class="card-filename">level-up-screen.html</span><span class="card-arrow">→</span></div>
+        </a>
+
+        <a class="file-card" href="copilot-bootcamp.html">
+          <div class="card-top"><div class="card-icon">📋</div><div class="card-badges"><span class="badge b-fac">Facilitator</span><span class="badge b-new">New</span></div></div>
+          <div class="card-title">Level Up — Facilitator Guide</div>
+          <div class="card-desc">Full run sheet for the 30-minute bootcamp. Revised timing for the whole day, scripted "say this" callouts for every segment, what to put on screen, and notes for each challenge round including the bug answer for Round 3.</div>
+          <div class="card-footer"><span class="card-filename">copilot-bootcamp.html</span><span class="card-arrow">→</span></div>
+        </a>
+
+      </div>
+
+      <div class="callout callout-green">
+        <div class="callout-label green">Y9–Y13 differentiation in this block</div>
+        All three rounds work across the full age range — Y9s compete on speed (Round 1), Y13s are pushed on quality (Round 2) and explanation (Round 3). The Bug Blitz answer echoes Bug 9 from the dashboard, which Y11+ will recognise. The golden rules serve as an explicit scaffold for Y9–Y10 going into the build phase.
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ═══════════════════════════════════
+         SECTION 3 — ADMIN
+    ═══════════════════════════════════ -->
+    <section>
+      <div class="section-tag">
+        <div class="section-tag-num" style="background:var(--muted);color:var(--bg)">3</div>
+        <div class="section-tag-label" style="color:var(--muted)">Admin · Setup</div>
+      </div>
+      <div class="section-title">Before anyone arrives</div>
+      <div class="section-desc">Complete these before the session. The setup guide takes you from zero GitHub account to a working org with seats and a template repo. The session plan is your master run sheet for the full 4 hours.</div>
+
+      <div class="role-strip">
+        <span class="role-pill">🔑 Facilitator only</span>
+        <span class="role-pill">⏱ Allow 30–40 min for setup</span>
+      </div>
+
+      <div class="file-grid">
+
+        <a class="file-card" href="facilitator-setup-guide.html">
+          <div class="card-top"><div class="card-icon">🏢</div><div class="card-badges"><span class="badge b-fac">Facilitator</span></div></div>
+          <div class="card-title">GitHub Org &amp; Seat Setup Guide</div>
+          <div class="card-desc">Start here. Creates your GitHub org from scratch, enables Copilot Business seats, builds the template repo with the devcontainer config, invites participants, and assigns seats. 12-step walkthrough with a pre-session checklist.</div>
+          <div class="card-footer"><span class="card-filename">facilitator-setup-guide.html</span><span class="card-arrow">→</span></div>
+        </a>
+
+        <a class="file-card" href="session-plan.html">
+          <div class="card-top"><div class="card-icon">📋</div><div class="card-badges"><span class="badge b-fac">Facilitator</span></div></div>
+          <div class="card-title">4-Hour Session Plan</div>
+          <div class="card-desc">Master run sheet for the full day including the updated timings with Level Up added. Every block scripted — what to say, what to put on screen, back-pocket feature ideas, rescue plans if things go wrong.</div>
+          <div class="card-footer"><span class="card-filename">session-plan.html</span><span class="card-arrow">→</span></div>
+        </a>
+
+      </div>
+
+      <!-- COMING SOON: HOURS 2-4 -->
+      <div style="margin-top:24px">
+        <div style="font-size:0.72em;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">⏳ Coming next — Hours 2–4 materials</div>
+        <div class="file-grid">
+
+          <div class="coming-card">
+            <div class="coming-icon">🧠</div>
+            <div>
+              <div class="coming-title">Brainstorm &amp; Plan Screen</div>
+              <div class="coming-desc">On-screen guide for the feature brainstorm and planning phase. Includes back-pocket ideas and a planning template differentiated by year group.</div>
+            </div>
+          </div>
+
+          <div class="coming-card">
+            <div class="coming-icon">🏗️</div>
+            <div>
+              <div class="coming-title">Build Starter Template</div>
+              <div class="coming-desc">A scaffolded HTML starter file for Y9–Y10. Pre-structured with comments as Copilot prompts — so no one stares at a blank page. Y11–Y13 start from scratch.</div>
+            </div>
+          </div>
+
+          <div class="coming-card">
+            <div class="coming-icon">📺</div>
+            <div>
+              <div class="coming-title">Milestone Screen</div>
+              <div class="coming-desc">On-screen milestone board for the build phase. Shows current target, Copilot prompting tips by year group, and stretch goal prompts.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="callout callout-amber" style="margin-top:14px">
+          <div class="callout-label amber">The key gap for Y9</div>
+          The jump from Level Up → blank page → build a feature can cause paralysis for Y9 participants. The Build Starter Template (coming next) closes this — it gives them a structured HTML file with guided comments so Copilot knows what to fill in. Y11+ don't get it; they start from scratch. That's the one thing currently missing from the pack.
         </div>
       </div>
-      <div class="card-grid">
-
-        <a class="file-card" href="bug-hunt-screen.html">
-          <div class="card-top">
-            <div class="card-icon">🔍</div>
-            <span class="card-badge badge-screen">On screen</span>
-          </div>
-          <div class="card-title">Bug Hunt Brief</div>
-          <div class="card-desc">The on-screen brief participants look at during the bug hunt. Dark NovaPay theme. Shows the mission, how to approach it, Copilot Chat prompts, and the difficulty ladder. Leave it up for the full 30 minutes.</div>
-          <div class="card-footer">
-            <span class="card-filename">bug-hunt-screen.html</span>
-            <span class="card-arrow">→</span>
-          </div>
-        </a>
-
-        <a class="file-card" href="participant-guide.html">
-          <div class="card-top">
-            <div class="card-icon">👤</div>
-            <span class="card-badge badge-participant">Participant</span>
-          </div>
-          <div class="card-title">Participant Getting Started Guide</div>
-          <div class="card-desc">10 numbered steps taking participants from creating a GitHub account all the way to actively fixing bugs. Share the link or put it on screen at the start of the session.</div>
-          <div class="card-footer">
-            <span class="card-filename">participant-guide.html</span>
-            <span class="card-arrow">→</span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-
-    <!-- THE EXERCISE FILE -->
-    <div>
-      <div class="section-header">
-        <div class="section-icon" style="background:rgba(0,200,150,0.15)">💻</div>
-        <div>
-          <div class="section-title">The exercise file</div>
-          <div class="section-sub">Upload this to your GitHub template repo before the session</div>
-        </div>
-      </div>
-      <div class="card-grid single">
-
-        <a class="file-card" href="bank-dashboard.html">
-          <div class="card-top">
-            <div class="card-icon">🏦</div>
-            <span class="card-badge badge-asset">Asset</span>
-          </div>
-          <div class="card-title">NovaPay Dashboard — Buggy Version</div>
-          <div class="card-desc">The banking dashboard with all 10 bugs embedded. This is what participants fix during Hour 1. Upload it to the root of your GitHub template repo as <code>bank-dashboard.html</code>. Do not fix the bugs before uploading.</div>
-          <div class="card-footer">
-            <span class="card-filename">bank-dashboard.html</span>
-            <span class="card-arrow">→</span>
-          </div>
-        </a>
-
-      </div>
-      <div class="when-strip">
-        <strong>Also needed in the repo:</strong> the <code>.devcontainer/devcontainer.json</code> file. Create it in GitHub by clicking Add file → Create new file and typing <code>.devcontainer/devcontainer.json</code> as the filename. The content is in the Facilitator Setup Guide.
-      </div>
-    </div>
+    </section>
 
   </main>
-
-  <footer class="footer">
-    NovaPay Workshop · GitHub Copilot · Ages 12–18 · Solo facilitator · Browser-based (GitHub Codespaces)
-  </footer>
 
 </body>
 </html>
