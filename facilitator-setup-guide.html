@@ -375,9 +375,15 @@
         <div class="step">
           <div class="step-num" style="background:rgba(108,99,255,0.2);color:var(--accent)">6</div>
           <div class="step-content">
-            <div class="step-title">Upload the dashboard file</div>
+            <div class="step-title">Upload both workshop files</div>
             <div class="step-body">
-              <p>On your new repo page, click <strong>Add file → Upload files</strong>. Drag in <code>bank-dashboard.html</code>. Scroll down and click <strong>Commit changes</strong>.</p>
+              <p>On your new repo page, click <strong>Add file → Upload files</strong>. Drag in both files at the same time:</p>
+              <ul style="margin: 10px 0 0 16px; font-size:0.87em; line-height:1.8">
+                <li><code>bank-dashboard.html</code> — the buggy NovaPay dashboard for Hour 1</li>
+                <li><code>starter-template.html</code> — the scaffolded build starter for Y9–Y10</li>
+              </ul>
+              <p style="margin-top:10px">Scroll down and click <strong>Commit changes</strong>.</p>
+              <div class="callout ok"><div class="callout-label ok">Why two files?</div>Y9–Y10 participants open <code>starter-template.html</code> at the start of the build phase. It's pre-structured with guided TODO comments so they don't stare at a blank page. Y11+ start from scratch. Both files need to be in the repo so participants can access them in their Codespace.</div>
             </div>
           </div>
         </div>
@@ -475,6 +481,72 @@
       </div>
     </div>
 
+    <!-- ── CODESPACES EXPLAINER ── -->
+    <div class="phase" id="codespaces-explainer">
+      <div class="phase-header">
+        <div class="phase-icon" style="background:rgba(79,195,247,0.15)">💡</div>
+        <div>
+          <div class="phase-title">Understanding Codespaces — if you only know GitHub Pages</div>
+          <div class="phase-sub">Read this before your test run — it will make everything make sense</div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num" style="background:rgba(79,195,247,0.2);color:#4FC3F7">?</div>
+          <div class="step-content">
+            <div class="step-title">What's the difference between GitHub Pages and Codespaces?</div>
+            <div class="step-body">
+              <p>You already know GitHub Pages: you upload an HTML file, GitHub serves it as a public website, anyone can visit the URL. The file lives in the repo and GitHub does the hosting.</p>
+              <p style="margin-top:10px"><strong>Codespaces is completely different.</strong> Instead of serving your file as a website, GitHub spins up a full cloud computer — a virtual Linux machine — and gives each person access to it through their browser. Inside that cloud computer, VS Code opens automatically, your files are there, and you edit them directly.</p>
+              <p style="margin-top:10px">There's no public URL. Nothing is published. It's more like giving everyone their own laptop to work on, except the laptop lives in Microsoft's data centre and they access it through a browser tab.</p>
+              <div class="callout ok"><div class="callout-label ok">The key difference in one sentence</div>GitHub Pages = GitHub hosts your finished file as a website. Codespaces = GitHub gives everyone a cloud computer to write code on.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(79,195,247,0.2);color:#4FC3F7">?</div>
+          <div class="step-content">
+            <div class="step-title">What will participants actually see?</div>
+            <div class="step-body">
+              <p>When a participant opens their Codespace, a new browser tab opens showing <strong>VS Code</strong> — the same code editor that professional developers use — running entirely in the browser. They don't install anything.</p>
+              <p style="margin-top:10px">On the left they'll see a file panel with <code>bank-dashboard.html</code> and <code>starter-template.html</code>. They click a file to open it. They edit it. They right-click it and choose <strong>Open with Live Server</strong> — this opens a second tab showing the page rendered in a browser, updating live as they type.</p>
+              <p style="margin-top:10px">On the left sidebar there's also a Copilot icon. Click it, a chat panel opens on the right, they type questions in plain English.</p>
+              <div class="callout"><div class="callout-label accent">This is why a test run is essential</div>You need to have seen this yourself before the session. Once you've done it once, you can describe it to participants and help anyone who gets stuck. It takes about 5 minutes to see the full experience.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(79,195,247,0.2);color:#4FC3F7">?</div>
+          <div class="step-content">
+            <div class="step-title">What do you need to know on the day?</div>
+            <div class="step-body">
+              <p>You don't need to be a VS Code expert. You need to know four things:</p>
+              <ul style="margin: 10px 0 0 18px; font-size:0.87em; line-height:2">
+                <li><strong>How to open a Codespace</strong> — Code button → Codespaces tab → Create codespace on main</li>
+                <li><strong>How to open the preview</strong> — right-click the file → Open with Live Server</li>
+                <li><strong>How to open Copilot Chat</strong> — click the Copilot icon in the left sidebar</li>
+                <li><strong>How to open the browser console</strong> — press F12, click Console tab (for bug errors)</li>
+              </ul>
+              <p style="margin-top:10px">That's the full toolkit. Everything else in the session flows from those four actions.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(79,195,247,0.2);color:#4FC3F7">?</div>
+          <div class="step-content">
+            <div class="step-title">Does any of my GitHub Pages knowledge transfer?</div>
+            <div class="step-body">
+              <p>Yes — more than you might think. You already understand repos, uploading files, and that HTML is just a text file. That mental model is exactly right. The HTML files in the repo are the same files participants will edit in Codespaces — they're just editing them inside the cloud computer rather than downloading them and editing locally.</p>
+              <p style="margin-top:10px">One thing that won't transfer: there's no "publish" step in this workshop. Nothing goes live as a public website. Participants work, preview in Live Server, demo from their Codespace, and that's it. That's fine — it's a workshop, not a deployment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ── PHASE 7 ── -->
     <div class="phase" id="phase7">
       <div class="phase-header">
@@ -527,6 +599,7 @@
             <tbody>
               <tr><td>Template repo is public and has "Use this template" button</td><td><span class="badge badge-green">Verify</span></td></tr>
               <tr><td><code>bank-dashboard.html</code> is in the repo root</td><td><span class="badge badge-green">Verify</span></td></tr>
+              <tr><td><code>starter-template.html</code> is in the repo root</td><td><span class="badge badge-green">Verify</span></td></tr>
               <tr><td><code>.devcontainer/devcontainer.json</code> is in the repo</td><td><span class="badge badge-green">Verify</span></td></tr>
               <tr><td>Copilot policy set to allow all repositories</td><td><span class="badge badge-amber">Critical</span></td></tr>
               <tr><td>All participant accounts have been invited to org</td><td><span class="badge badge-amber">Critical</span></td></tr>
