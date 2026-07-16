@@ -124,13 +124,27 @@
     <div class="hero-desc">All materials for the NovaPay GitHub Copilot workshop. Three learning blocks, structured for Y9–Y13. Open any file directly in your browser.</div>
   </div>
 
+  <!-- READY SUMMARY BANNER -->
+  <div style="max-width:900px;margin:0 auto 32px;padding:0 32px">
+    <a href="READY-summary.html" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(135deg,rgba(108,99,255,0.15),rgba(0,200,150,0.1));border:1.5px solid rgba(108,99,255,0.3);border-radius:14px;padding:18px 24px;text-decoration:none;color:white;transition:transform 0.15s;">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div style="font-size:1.8em">✅</div>
+        <div>
+          <div style="font-weight:800;font-size:1em;letter-spacing:-0.02em">New here? Start with the readiness summary</div>
+          <div style="font-size:0.8em;color:rgba(255,255,255,0.6);margin-top:2px">Full status check — what's done, what's left, and confidence that this is ready to run</div>
+        </div>
+      </div>
+      <div style="font-size:1.3em;color:#6C63FF;flex-shrink:0">→</div>
+    </a>
+  </div>
+
   <!-- STATS -->
   <div class="stats">
     <div class="stat"><div class="stat-num" style="color:var(--accent)">4 hrs</div><div class="stat-label">Total session</div></div>
     <div class="stat"><div class="stat-num" style="color:var(--green)">10</div><div class="stat-label">Bugs to find</div></div>
     <div class="stat"><div class="stat-num" style="color:var(--amber)">3</div><div class="stat-label">Challenge rounds</div></div>
     <div class="stat"><div class="stat-num" style="color:var(--red)">Y9–Y13</div><div class="stat-label">Age range</div></div>
-    <div class="stat"><div class="stat-num" style="color:var(--text)">12</div><div class="stat-label">Files in pack</div></div>
+    <div class="stat"><div class="stat-num" style="color:var(--text)">15</div><div class="stat-label">Files in pack</div></div>
   </div>
 
   <!-- SCAFFOLDING STRIP -->
@@ -338,34 +352,55 @@
 
         <div class="file-grid">
 
+          <a class="file-card" href="build-phase-guide.html">
+            <div class="card-top"><div class="card-icon">🎯</div><div class="card-badges"><span class="badge b-fac">Facilitator</span><span class="badge b-new">Master</span></div></div>
+            <div class="card-title">Build Phase Master Guide</div>
+            <div class="card-desc">The complete 2-hour plan: minute-by-minute run sheet, scripted lines, checkpoint structure, scope-rescue calls, the full "circulating as a non-developer" script, and the rescue playbook. Start here for the build phase.</div>
+            <div class="card-footer"><span class="card-filename">build-phase-guide.html</span><span class="card-arrow">→</span></div>
+          </a>
+
+          <a class="file-card" href="example-feature.html">
+            <div class="card-top"><div class="card-icon">🏆</div><div class="card-badges"><span class="badge b-scr">On screen</span><span class="badge b-new">New</span></div></div>
+            <div class="card-title">Finished Example — Savings Goal Tracker</div>
+            <div class="card-desc">The worked example. Demo this live at the start of the build phase so everyone can picture "done": inputs, validation with friendly errors, animated progress bar, goal-reached celebration. Fully commented code — it's also the answer key to the starter template.</div>
+            <div class="card-footer"><span class="card-filename">example-feature.html</span><span class="card-arrow">→</span></div>
+          </a>
+
           <a class="file-card" href="brainstorm-screen.html">
-            <div class="card-top"><div class="card-icon">🧠</div><div class="card-badges"><span class="badge b-scr">On screen</span><span class="badge b-new">New</span></div></div>
+            <div class="card-top"><div class="card-icon">🧠</div><div class="card-badges"><span class="badge b-scr">On screen</span></div></div>
             <div class="card-title">Brainstorm &amp; Plan Screen</div>
             <div class="card-desc">5-slide click-through deck for the brainstorm and planning phase. Big question, seeded categories, feature gallery with Y9–Y13 difficulty labels, 4-question planning template, and a 5-minute countdown timer.</div>
             <div class="card-footer"><span class="card-filename">brainstorm-screen.html</span><span class="card-arrow">→</span></div>
           </a>
 
           <a class="file-card" href="milestone-screen.html">
-            <div class="card-top"><div class="card-icon">🏗️</div><div class="card-badges"><span class="badge b-scr">On screen</span><span class="badge b-new">New</span></div></div>
+            <div class="card-top"><div class="card-icon">🏗️</div><div class="card-badges"><span class="badge b-scr">On screen</span></div></div>
             <div class="card-title">Build Milestone Screen</div>
-            <div class="card-desc">Interactive milestone tracker for the 90-minute build phase. Click each milestone to advance it (Upcoming → In Progress → Done). Right panel shows Copilot tips and stretch goals filtered by Y9–10, Y11, or Y12–13. Built-in countdown timer.</div>
+            <div class="card-desc">Interactive milestone tracker for the build sprints. Click each milestone to advance it (Upcoming → In Progress → Done). Right panel shows Copilot tips and stretch goals filtered by Y9–10, Y11, or Y12–13. Built-in countdown timer.</div>
             <div class="card-footer"><span class="card-filename">milestone-screen.html</span><span class="card-arrow">→</span></div>
           </a>
 
         </div>
 
-        <div class="file-grid single" style="margin-top:12px">
+        <div class="file-grid" style="margin-top:12px">
           <a class="file-card" href="starter-template.html">
-            <div class="card-top"><div class="card-icon">📄</div><div class="card-badges"><span class="badge b-par">Y9–Y10 only</span><span class="badge b-new">New</span></div></div>
-            <div class="card-title">Build Starter Template — Savings Goal Tracker</div>
-            <div class="card-desc">Give this to Y9–Y10 participants at the start of the build phase. NovaPay-themed, pre-styled HTML with 7 structured TODO sections. Each one has a COPILOT HINT comment to type — Copilot fills in the code. Y11+ start from a blank file. Covers: progress bar, calculate function, validation, display update, and wiring everything together.</div>
+            <div class="card-top"><div class="card-icon">📄</div><div class="card-badges"><span class="badge b-par">Y9–Y10 only</span></div></div>
+            <div class="card-title">Build Starter Template</div>
+            <div class="card-desc">Give this to Y9–Y10 at the start of the build. NovaPay-themed, pre-styled HTML with 7 structured TODO sections, each with a COPILOT HINT comment to type. Upload to the repo root alongside the dashboard.</div>
             <div class="card-footer"><span class="card-filename">starter-template.html</span><span class="card-arrow">→</span></div>
+          </a>
+
+          <a class="file-card" href="copilot-instructions.md">
+            <div class="card-top"><div class="card-icon">🤖</div><div class="card-badges"><span class="badge b-ast">Asset</span><span class="badge b-new">Nova</span></div></div>
+            <div class="card-title">Nova — Virtual Developer Mentor</div>
+            <div class="card-desc">A mentor personality for Copilot Chat itself. Install by creating <code style="font-family:monospace;font-size:0.85em;background:rgba(108,99,255,0.15);color:#A89CFF;padding:1px 4px;border-radius:3px">.github/copilot-instructions.md</code> in your repo and pasting this in. Nova gives hints not answers, refuses to build whole features, explains in plain English, keeps students safe and on-task. Full details in the Build Phase Master Guide.</div>
+            <div class="card-footer"><span class="card-filename">copilot-instructions.md</span><span class="card-arrow">→</span></div>
           </a>
         </div>
 
         <div class="callout callout-green" style="margin-top:14px">
           <div class="callout-label green">Pack is now complete for Y9–Y13</div>
-          The starter template closes the key gap for younger participants. Y9–Y10 follow the TODO comments as a guided scaffold. Y11+ start blank. Y12–13 aim for the stretch goals in the milestone screen's right panel. Every year group has a clear path from start to demo.
+          The starter template scaffolds Y9–Y10, the example shows everyone the destination, Nova mentors every student individually inside Copilot Chat, and the master guide scripts you through the full 2 hours as a non-developer. Every year group has a clear path from blank page to demo.
         </div>
       </div>
     </section>

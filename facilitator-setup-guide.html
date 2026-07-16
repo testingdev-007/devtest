@@ -238,6 +238,7 @@
     <div class="nav-section" style="margin-top:6px">
       <div class="nav-label">Part 3 — The workshop</div>
       <a class="nav-item" href="#phase5"><div class="nav-num">5</div>Create template repo</a>
+      <a class="nav-item" href="#nova-install"><div class="nav-num">🤖</div>Install Nova</a>
       <a class="nav-item" href="#phase6"><div class="nav-num">6</div>Add participants</a>
       <a class="nav-item" href="#phase7"><div class="nav-num">7</div>Test end-to-end</a>
     </div>
@@ -547,6 +548,105 @@
       </div>
     </div>
 
+    <!-- ── NOVA INSTALL ── -->
+    <div class="phase" id="nova-install">
+      <div class="phase-header">
+        <div class="phase-icon" style="background:rgba(79,195,247,0.15)">🤖</div>
+        <div>
+          <div class="phase-title">Part 6b — Install Nova (your virtual mentor)</div>
+          <div class="phase-sub">One file, one paste, five minutes. Zero coding knowledge needed.</div>
+        </div>
+      </div>
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(79,195,247,0.2);color:#4FC3F7">?</div>
+          <div class="step-content">
+            <div class="step-title">What you're about to do, in one sentence</div>
+            <div class="step-body">
+              <p>You're going to create one text file in your repo, called exactly <code>.github/copilot-instructions.md</code>, and paste some instructions into it. That's it. GitHub Copilot automatically reads this file and changes its personality for everyone using your repo — into "Nova."</p>
+              <div class="callout ok"><div class="callout-label ok">Nothing to install on your computer</div>You do this entirely on the github.com website, in your browser. No downloads, no terminal, no code.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(79,195,247,0.2);color:#4FC3F7">A</div>
+          <div class="step-content">
+            <div class="step-title">Go to your template repo</div>
+            <div class="step-body">
+              <p>Go to <code>github.com/YOUR-USERNAME/novapay-workshop</code> — the same repo where you uploaded <code>bank-dashboard.html</code> and <code>starter-template.html</code>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(79,195,247,0.2);color:#4FC3F7">B</div>
+          <div class="step-content">
+            <div class="step-title">Click "Add file"</div>
+            <div class="step-body">
+              <p>Near the top right of the file list, click the <strong>Add file</strong> button (it's a dropdown) → click <strong>Create new file</strong>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(79,195,247,0.2);color:#4FC3F7">C</div>
+          <div class="step-content">
+            <div class="step-title">Type the exact filename</div>
+            <div class="step-body">
+              <p>A box appears for the filename. Type exactly this, including the dot at the start and the slash in the middle:</p>
+              <pre>.github/copilot-instructions.md</pre>
+              <div class="callout warn"><div class="callout-label warn">This part matters</div>The <code>/</code> is what tells GitHub to create a folder called <code>.github</code> and put the file inside it. If you get this filename wrong — even a small typo — Copilot won't read the file and Nova won't activate. Copy it exactly as shown above.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(79,195,247,0.2);color:#4FC3F7">D</div>
+          <div class="step-content">
+            <div class="step-title">Paste in the Nova instructions</div>
+            <div class="step-body">
+              <p>Below the filename box there's a big empty text area — that's where the file content goes. Open <code>copilot-instructions.md</code> from your materials pack, select everything in it (Ctrl+A or Cmd+A), copy it, and paste the whole thing into that box.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(79,195,247,0.2);color:#4FC3F7">E</div>
+          <div class="step-content">
+            <div class="step-title">Commit the file</div>
+            <div class="step-body">
+              <p>Scroll to the bottom of the page. Click the green <strong>Commit changes...</strong> button, then confirm on the dialog that pops up (default options are fine). Done — Nova is now live in your repo.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(0,200,150,0.2);color:var(--green)">✓</div>
+          <div class="step-content">
+            <div class="step-title">How to check it worked</div>
+            <div class="step-body">
+              <p>Create a fresh test Codespace from your template (same as your usual test process). Open Copilot Chat and type: <code>Who are you?</code></p>
+              <p>If Nova is working, it should describe itself as a NovaPay mentor rather than giving a generic "I'm GitHub Copilot" answer. If it gives the generic answer, double-check the filename in step C — that's the only step that commonly goes wrong.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:rgba(255,181,71,0.2);color:var(--amber)">!</div>
+          <div class="step-content">
+            <div class="step-title">Important — this must happen BEFORE participants create their Codespaces</div>
+            <div class="step-body">
+              <p>Nova is copied into each participant's own repo the moment they click "Use this template." If you add the Nova file to your template <strong>after</strong> some participants have already made their copies, those participants won't have it.</p>
+              <div class="callout warn"><div class="callout-label warn">The fix if this happens on the day</div>Ask them to delete their personal repo (Settings → scroll to bottom → Delete this repository) and click "Use this template" again from your master repo. Their own code isn't safely recoverable this way, so this is best avoided by doing this step properly, before the session, once.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- ── PHASE 7 ── -->
     <div class="phase" id="phase7">
       <div class="phase-header">
@@ -601,6 +701,8 @@
               <tr><td><code>bank-dashboard.html</code> is in the repo root</td><td><span class="badge badge-green">Verify</span></td></tr>
               <tr><td><code>starter-template.html</code> is in the repo root</td><td><span class="badge badge-green">Verify</span></td></tr>
               <tr><td><code>.devcontainer/devcontainer.json</code> is in the repo</td><td><span class="badge badge-green">Verify</span></td></tr>
+              <tr><td><code>.github/copilot-instructions.md</code> (Nova) is in the repo</td><td><span class="badge badge-amber">Critical</span></td></tr>
+              <tr><td>Tested Nova responds as "Nova" not generic Copilot</td><td><span class="badge badge-amber">Critical</span></td></tr>
               <tr><td>Copilot policy set to allow all repositories</td><td><span class="badge badge-amber">Critical</span></td></tr>
               <tr><td>All participant accounts have been invited to org</td><td><span class="badge badge-amber">Critical</span></td></tr>
               <tr><td>All participants have accepted the org invite</td><td><span class="badge badge-amber">Critical</span></td></tr>
