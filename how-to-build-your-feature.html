@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Build Your Feature — Click by Click</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F2F4FA; --white: #FFFFFF; --border: #E2E6F0;
+      --accent: #6C63FF; --accent-light: #EEEEFF;
+      --green: #00A878; --green-light: #E6F7F2;
+      --amber: #D4830A; --amber-light: #FEF3E2;
+      --red: #D6294A; --red-light: #FDECEF;
+      --text: #0D0F1C; --muted: #6B7280;
+    }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.6; padding-bottom: 60px; }
+
+    .app-header { background: white; border-bottom: 2px solid var(--border); padding: 0 32px; height: 60px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; }
+    .logo { font-size: 1.15em; font-weight: 800; letter-spacing: -0.04em; color: var(--accent); }
+    .logo span { color: var(--text); }
+    .header-badge { background: var(--amber-light); color: var(--amber); font-size: 0.72em; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; }
+
+    .main { max-width: 760px; margin: 0 auto; padding: 40px 20px; }
+
+    .page-header { text-align: center; margin-bottom: 40px; }
+    .page-title { font-size: 2.1em; font-weight: 800; letter-spacing: -0.04em; line-height: 1.2; margin-bottom: 12px; }
+    .page-desc { font-size: 0.95em; color: var(--muted); max-width: 580px; margin: 0 auto; line-height: 1.65; }
+
+    .own-idea-box { background: var(--accent); color: white; border-radius: 14px; padding: 18px 24px; margin-bottom: 36px; font-size: 0.88em; line-height: 1.6; }
+    .own-idea-box strong { display: block; margin-bottom: 4px; font-size: 1.02em; }
+
+    .section { margin-bottom: 44px; }
+    .section-label { display: inline-flex; align-items: center; gap: 8px; background: var(--amber); color: white; font-size: 0.75em; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 16px; border-radius: 100px; margin-bottom: 16px; }
+    .section-title { font-size: 1.4em; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 10px; }
+    .section-desc { font-size: 0.9em; color: var(--muted); line-height: 1.6; margin-bottom: 18px; }
+
+    .todo-step { background: var(--white); border: 1.5px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 16px; }
+    .todo-head { display: flex; align-items: center; gap: 12px; padding: 16px 22px; background: var(--accent-light); border-bottom: 1.5px solid var(--border); }
+    .todo-num { width: 32px; height: 32px; border-radius: 10px; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9em; flex-shrink: 0; }
+    .todo-title { font-weight: 700; font-size: 0.98em; }
+    .todo-body { padding: 18px 22px; font-size: 0.89em; color: #374151; line-height: 1.65; }
+    .todo-body p + p { margin-top: 8px; }
+
+    code { font-family: 'JetBrains Mono', monospace; font-size: 0.87em; background: var(--accent-light); color: var(--accent); padding: 2px 7px; border-radius: 5px; font-weight: 600; }
+    pre { background: #1A1D29; color: #E5E7EB; border-radius: 10px; padding: 16px 18px; font-family: 'JetBrains Mono', monospace; font-size: 0.82em; line-height: 1.7; overflow-x: auto; margin: 10px 0; white-space: pre-wrap; }
+    .pre-cmt { color: #8B92A5; }
+
+    .type-this { background: #1A1D29; border-radius: 10px; padding: 14px 18px; margin: 10px 0; }
+    .type-this-label { font-size: 0.68em; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8B92A5; margin-bottom: 8px; }
+    .type-this code { display: block; background: none; color: #A89CFF; padding: 0; font-size: 0.88em; line-height: 1.7; white-space: pre-wrap; }
+
+    .see-box { background: var(--green-light); border: 1px solid #B7E8D8; border-radius: 8px; padding: 12px 16px; margin: 10px 0; font-size: 0.86em; color: #065F46; line-height: 1.55; }
+    .see-label { font-weight: 700; font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
+
+    .tip { background: var(--accent-light); border: 1px solid #D4D0FF; border-radius: 8px; padding: 12px 16px; margin: 10px 0; font-size: 0.86em; color: #3730A3; line-height: 1.55; }
+    .tip-label { font-weight: 700; font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; color: var(--accent); }
+
+    .warn { background: var(--amber-light); border: 1px solid #F6D28A; border-radius: 8px; padding: 12px 16px; margin: 10px 0; font-size: 0.86em; color: #78350F; line-height: 1.55; }
+    .warn-label { font-weight: 700; font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
+
+    .fix-box { background: var(--red-light); border: 1px solid #F3C1CA; border-radius: 8px; padding: 12px 16px; margin: 10px 0; font-size: 0.86em; color: #8A0F26; line-height: 1.55; }
+    .fix-label { font-weight: 700; font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
+
+    .click-path { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .click { background: var(--accent-light); color: var(--accent); border: 1px solid rgba(108,99,255,0.25); border-radius: 7px; padding: 5px 13px; font-size: 0.84em; font-weight: 600; }
+    .arrow { color: var(--muted); font-size: 0.9em; }
+
+    hr { border: none; border-top: 2px solid var(--border); margin: 36px 0; }
+
+    .milestone-marker { text-align: center; padding: 14px; background: var(--green-light); border-radius: 10px; margin: 20px 0; font-size: 0.88em; font-weight: 700; color: var(--green); }
+
+    .final-box { background: var(--accent); color: white; border-radius: 16px; padding: 24px 28px; text-align: center; margin-top: 20px; }
+    .final-title { font-size: 1.1em; font-weight: 800; margin-bottom: 6px; }
+    .final-desc { font-size: 0.88em; color: rgba(255,255,255,0.85); line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="logo">nova<span>pay</span></div>
+    <div class="header-badge">🏗️ Build Tutorial</div>
+  </header>
+
+  <main class="main">
+
+    <div class="page-header">
+      <div class="page-title">How to Build Your Feature</div>
+      <div class="page-desc">A complete click-by-click build of a Savings Goal Tracker — from an empty starter file to a fully working feature. Same method works for any idea.</div>
+    </div>
+
+    <div class="own-idea-box">
+      <strong>Building your own idea instead?</strong>
+      Use exactly this same method — comment, Tab, save, test, repeat. Just swap the comments below for ones that describe YOUR inputs and outputs instead of a savings goal.
+    </div>
+
+    <!-- SETUP -->
+    <div class="section">
+      <div class="section-label" style="background:var(--accent)">Before You Start</div>
+      <div class="section-title">Get your screen set up</div>
+      <div class="todo-step">
+        <div class="todo-head"><div class="todo-num">0</div><div class="todo-title">Open two things side by side</div></div>
+        <div class="todo-body">
+          <p>In your file panel, click <code>starter-template.html</code> to open it in the editor. Then right-click it → <strong>Open with Live Server</strong> so you have a preview tab too.</p>
+          <div class="click-path">
+            <span class="click">Click starter-template.html</span>
+            <span class="arrow">→</span>
+            <span class="click">Right-click → Open with Live Server</span>
+          </div>
+          <p>Keep both tabs open the whole time — you'll flip between them constantly.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- TODO 1 -->
+    <div class="section">
+      <div class="section-label">Step 1 of 7</div>
+      <div class="section-title">Style the progress bar</div>
+
+      <div class="todo-step">
+        <div class="todo-head"><div class="todo-num">1</div><div class="todo-title">Find TODO 1 in the CSS</div></div>
+        <div class="todo-body">
+          <p>Scroll down in the code until you find the comment that says <code>TODO 1: Style the progress bar</code>. Click right underneath it, on the empty line.</p>
+          <div class="type-this">
+            <div class="type-this-label">Type this comment</div>
+            <code>/* progress bar container and fill styles */</code>
+          </div>
+          <p>Wait a second — grey ghost text should appear underneath, suggesting CSS code. Press <code>Tab</code> to accept it.</p>
+          <div class="see-box"><div class="see-label">What you should see</div>A block of new CSS code appears, styling something called <code>.progress-track</code> and <code>.progress-fill</code>. Save with <code>Ctrl+S</code>.</div>
+          <div class="tip"><div class="tip-label">Nothing visible changes yet — that's normal</div>You've only written the styling rules. Nothing on the page uses them yet because you haven't added the HTML that needs them. That's the next step.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TODO 2 -->
+    <div class="section">
+      <div class="section-title">Step 2 of 7 — Style the result message</div>
+      <div class="todo-step">
+        <div class="todo-head"><div class="todo-num">2</div><div class="todo-title">Find TODO 2, right below TODO 1</div></div>
+        <div class="todo-body">
+          <div class="type-this">
+            <div class="type-this-label">Type this comment</div>
+            <code>/* styles for a result card showing
+   a large amount remaining and a status message */</code>
+          </div>
+          <p>Press <code>Tab</code> to accept the suggestion. Save with <code>Ctrl+S</code>.</p>
+          <div class="see-box"><div class="see-label">What you should see</div>More CSS appears, this time styling a result box. Still nothing visible in the preview — same reason as before.</div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- TODO 3 -->
+    <div class="section">
+      <div class="section-label" style="background:var(--green)">Now Things Get Visible</div>
+      <div class="section-title">Step 3 of 7 — Add the progress bar HTML</div>
+      <div class="todo-step">
+        <div class="todo-head"><div class="todo-num">3</div><div class="todo-title">Scroll down to the HTML section, find TODO 3</div></div>
+        <div class="todo-body">
+          <p>This one's in the HTML part of the file, below the input card.</p>
+          <div class="type-this">
+            <div class="type-this-label">Type this comment</div>
+            <code>&lt;!-- savings goal progress card with a
+     labelled progress bar and percentage --&gt;</code>
+          </div>
+          <p>Press <code>Tab</code>. Save with <code>Ctrl+S</code>.</p>
+          <div class="see-box"><div class="see-label">What you should see</div>Switch to your Live Server tab and refresh (it should update automatically, but refresh manually if not). A new card should now be visible on the page — a progress bar, even if it's showing 0% right now.</div>
+          <div class="fix-box">
+            <div class="fix-label">If you DON'T see it</div>
+            Check the editor tab for a red squiggly line anywhere — that means a typo broke the HTML. Also confirm you saved (the tab title has a dot on it if unsaved). If it still doesn't show, ask Nova: "I added a progress card but it's not showing on the page — here's my code, what's wrong?"
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TODO 4 -->
+    <div class="section">
+      <div class="section-title">Step 4 of 7 — Add the result HTML</div>
+      <div class="todo-step">
+        <div class="todo-head"><div class="todo-num">4</div><div class="todo-title">Find TODO 4, right below TODO 3</div></div>
+        <div class="todo-body">
+          <div class="type-this">
+            <div class="type-this-label">Type this comment</div>
+            <code>&lt;!-- result card showing amount left to save
+     and a congratulations message if goal met --&gt;</code>
+          </div>
+          <p>Press <code>Tab</code>. Save.</p>
+          <div class="see-box"><div class="see-label">What you should see</div>A second new card appears below the progress bar in your preview — this is where the "amount left" message will eventually show.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestone-marker">✓ Milestone check: your page now has a heading, inputs, a button, a progress bar, and a result area. All the pieces are visible — none of them work yet. That's exactly on track.</div>
+
+    <hr>
+
+    <!-- TODO 5 -->
+    <div class="section">
+      <div class="section-label" style="background:var(--red)">The Logic</div>
+      <div class="section-title">Step 5 of 7 — The calculation</div>
+      <div class="todo-step">
+        <div class="todo-head"><div class="todo-num">5</div><div class="todo-title">Scroll to the JavaScript section at the bottom, find TODO 5</div></div>
+        <div class="todo-body">
+          <div class="type-this">
+            <div class="type-this-label">Type this comment</div>
+            <code>// function calculateProgress(savedAmount,
+//   targetAmount) that returns the percentage
+//   saved, capped at 100, rounded to 1 decimal</code>
+          </div>
+          <p>Press <code>Tab</code>. Save.</p>
+          <div class="see-box"><div class="see-label">What you should see</div>A new function appears in the code. Nothing changes in the preview — this function exists but nothing calls it yet.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TODO 6 -->
+    <div class="section">
+      <div class="section-title">Step 6 of 7 — Updating the display</div>
+      <div class="todo-step">
+        <div class="todo-head"><div class="todo-num">6</div><div class="todo-title">Find TODO 6, right below TODO 5</div></div>
+        <div class="todo-body">
+          <div class="type-this">
+            <div class="type-this-label">Type this comment</div>
+            <code>// function updateDisplay(goalName, targetAmount,
+//   savedAmount, percentage) that updates the
+//   progress bar width, percentage text,
+//   amount remaining, and shows a
+//   congratulations message if goal is met</code>
+          </div>
+          <p>Press <code>Tab</code> — this one's bigger, Copilot might suggest it in a few chunks. Keep pressing Tab to accept each part. Save.</p>
+          <div class="see-box"><div class="see-label">What you should see</div>Still no visible change — this function is ready to run but hasn't been triggered by anything yet. One step to go.</div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- TODO 7 -->
+    <div class="section">
+      <div class="section-label" style="background:var(--green)">The Big Moment</div>
+      <div class="section-title">Step 7 of 7 — Wire it all together</div>
+      <div class="todo-step">
+        <div class="todo-head"><div class="todo-num">7</div><div class="todo-title">Find the empty updateGoal() function</div></div>
+        <div class="todo-body">
+          <p>This is the function that runs when someone clicks the button. It's already started for you — you'll see:</p>
+          <pre>function updateGoal() {
+  <span class="pre-cmt">// YOUR CODE GOES HERE</span>
+}</pre>
+          <p>Click on that comment line and replace it with this comment, then press <code>Tab</code>:</p>
+          <div class="type-this">
+            <div class="type-this-label">Type this comment</div>
+            <code>// read goalName, targetAmount and savedAmount
+// from the inputs, validate them, calculate
+// progress, and update the display</code>
+          </div>
+          <p>Copilot should generate several lines that read your three input boxes and call the two functions you already built. Save with <code>Ctrl+S</code>.</p>
+        </div>
+      </div>
+
+      <div class="todo-step">
+        <div class="todo-head"><div class="todo-num">✓</div><div class="todo-title">Test the whole thing for real</div></div>
+        <div class="todo-body">
+          <p>Switch to your Live Server preview tab. Fill in the three boxes with real numbers:</p>
+          <div class="click-path">
+            <span class="click">Goal name: "New trainers"</span>
+            <span class="click">Target: 80</span>
+            <span class="click">Saved so far: 50</span>
+          </div>
+          <p>Click <strong>Update my goal</strong>.</p>
+          <div class="see-box"><div class="see-label">What you should see</div>The progress bar should animate and fill to roughly 62%. The result card should show something like "£30.00 left to save."</div>
+          <div class="fix-box">
+            <div class="fix-label">If nothing happens when you click the button</div>
+            Press <code>F12</code>, click <strong>Console</strong>, click the button again — look for red text. Copy it and ask Nova: "I clicked my button and got this error: [paste it]. What's wrong?"
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestone-marker">🎉 If the bar filled in and the message appeared — your feature works. That's genuinely the hardest part done.</div>
+
+    <hr>
+
+    <!-- TESTING -->
+    <div class="section">
+      <div class="section-label" style="background:var(--amber)">Now Break It On Purpose</div>
+      <div class="section-title">Check it properly before you demo it</div>
+      <div class="section-desc">Try each of these. For each one, decide: is this OK, or does it need fixing?</div>
+      <div class="todo-step">
+        <div class="todo-body">
+          <p><strong>Leave all three boxes empty</strong> and click the button. Does it show something sensible, or does it break?</p>
+          <p><strong>Type a savings amount bigger than the target.</strong> Does the bar go past 100%, or does it cap sensibly?</p>
+          <p><strong>Type a negative number.</strong> Does anything stop you, or does it just show something nonsensical?</p>
+          <p>Log whatever you find in your <strong>Feature Test Plan</strong>. If something breaks that shouldn't, that's your next thing to fix — ask Nova: "How do I stop someone entering a negative number here?"</p>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- HOW TO CHANGE THINGS -->
+    <div class="section">
+      <div class="section-label">Iterating</div>
+      <div class="section-title">How to change something once it's built</div>
+      <div class="todo-step">
+        <div class="todo-body">
+          <p><strong>Want to change how it looks?</strong> Find the relevant CSS rule (search for the class name, e.g. <code>.progress-fill</code>), change the value (a colour, a size), save, and check the preview.</p>
+          <p><strong>Want to change how it behaves?</strong> Find the relevant function in the JavaScript, describe your change as a new comment right above the line you want different, and let Copilot suggest an update — or ask Nova directly: "How do I make X happen instead of Y?"</p>
+          <p><strong>Got a wall of red errors?</strong> Don't panic — read only the first one, it's usually the real problem. Fix that, save, and see if the others disappear on their own.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="final-box">
+      <div class="final-title">🚀 The method never changes</div>
+      <div class="final-desc">Comment → Tab → Save → Test → Ask Nova if stuck → Repeat. Whatever you're building next — this feature's stretch goals, or a completely different idea — this is the whole loop.</div>
+    </div>
+
+  </main>
+</body>
+</html>

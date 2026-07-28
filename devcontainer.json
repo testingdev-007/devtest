@@ -3,7 +3,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-vscode.live-server",
+        "ritwickdey.LiveServer",
         "GitHub.copilot",
         "GitHub.copilot-chat"
       ],
