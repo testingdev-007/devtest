@@ -77,6 +77,37 @@
     .final-box { background: var(--accent); color: white; border-radius: 16px; padding: 24px 28px; text-align: center; margin-top: 20px; }
     .final-title { font-size: 1.1em; font-weight: 800; margin-bottom: 6px; }
     .final-desc { font-size: 0.88em; color: rgba(255,255,255,0.85); line-height: 1.6; }
+
+    /* ── LEVEL SWITCHER ── */
+    .level-bar {
+      position: sticky; top: 0; z-index: 60;
+      background: white; border-bottom: 2px solid var(--border);
+      padding: 12px 20px; margin: -40px -20px 32px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      justify-content: center;
+    }
+    .level-label { font-size: 0.78em; font-weight: 700; color: var(--muted); margin-right: 4px; }
+    .level-btn {
+      background: var(--bg); border: 1.5px solid var(--border); color: var(--text);
+      font-family: inherit; font-size: 0.82em; font-weight: 700; padding: 7px 16px;
+      border-radius: 100px; cursor: pointer; transition: all 0.15s;
+    }
+    .level-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
+    .level-btn:hover:not(.active) { border-color: var(--accent); }
+
+    /* Stretch/challenge content shown only for certain levels */
+    .stretch-block { display: none; background: var(--red-light); border: 1.5px solid #F3C1CA; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+    body[data-level="y11"] .stretch-block.for-y11,
+    body[data-level="y1213"] .stretch-block.for-y11,
+    body[data-level="y1213"] .stretch-block.for-y1213 { display: block; }
+    .stretch-label { font-weight: 700; font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.05em; color: var(--red); margin-bottom: 4px; }
+
+    /* Reveal box for hiding scaffolding at higher levels */
+    details.reveal-box { margin: 10px 0; }
+    details.reveal-box summary { cursor: pointer; font-weight: 700; font-size: 0.85em; color: var(--accent); padding: 8px 0; list-style: none; }
+    details.reveal-box summary::-webkit-details-marker { display: none; }
+    details.reveal-box summary::before { content: "▸ "; }
+    details.reveal-box[open] summary::before { content: "▾ "; }
   </style>
 </head>
 <body>
@@ -91,6 +122,13 @@
     <div class="page-header">
       <div class="page-title">How to Find &amp; Fix a Bug</div>
       <div class="page-desc">A real, click-by-click walkthrough. We'll use a made-up example first so nothing here spoils the real bugs in the dashboard — then you'll use the exact same method on the actual file.</div>
+    </div>
+
+    <div class="level-bar">
+      <span class="level-label">I'm in:</span>
+      <button class="level-btn active" onclick="setLevel('y9', this)">Y9–Y10</button>
+      <button class="level-btn" onclick="setLevel('y11', this)">Y11</button>
+      <button class="level-btn" onclick="setLevel('y1213', this)">Y12–Y13</button>
     </div>
 
     <!-- THE METHOD -->
@@ -233,6 +271,14 @@ function <span class="pre-del">sayHu</span>() {
             <div class="category-card"><div class="category-title">Type a huge number</div><div class="category-desc">Bigger than the amounts on the page</div></div>
           </div>
           <p style="margin-top:10px">Every time something looks wrong or doesn't behave the way you'd expect a real banking app to behave — that's a bug. Write it in your Bug Test Plan straight away, before you forget.</p>
+          <div class="stretch-block for-y11">
+            <div class="stretch-label">Y11+ Stretch</div>
+            Before you fix anything, write down your best guess for <em>why</em> it's broken, in your own words. Check your guess once you've read the code.
+          </div>
+          <div class="stretch-block for-y1213">
+            <div class="stretch-label">Y12–13 Stretch</div>
+            Try to categorise each bug as you find it: is it a <strong>typo</strong>, a <strong>logic error</strong> (the maths or condition is wrong), or a <strong>missing check</strong> (nothing stops bad input)? Naming the category before you fix it is exactly what a real code review looks like.
+          </div>
         </div>
       </div>
 
@@ -245,6 +291,10 @@ function <span class="pre-del">sayHu</span>() {
           <p>Click on <code>bank-dashboard.html</code> in your file panel. Read the HTML first, top to bottom. Then read the CSS. Then read the JavaScript at the bottom, one line at a time.</p>
           <p>For every line, ask yourself: <em>does this say what I think it says?</em> Compare names carefully — an id used in one place has to be spelled <strong>exactly</strong> the same everywhere else it's used.</p>
           <div class="warn"><div class="warn-label">Open the console too</div>Press <strong>F12</strong>, click the <strong>Console</strong> tab, then try using the page again. Red text in there is JavaScript telling you exactly where it got confused — genuinely one of the most useful clues you have.</div>
+          <div class="stretch-block for-y1213">
+            <div class="stretch-label">Y12–13 Stretch</div>
+            For one bug, write a proper one-sentence bug report the way a real team would file it: <em>"Expected X to happen when doing Y. Instead, Z happened."</em> This is the actual skill of turning a vague "it's broken" into something someone else could act on.
+          </div>
         </div>
       </div>
 
@@ -316,5 +366,14 @@ function <span class="pre-del">sayHu</span>() {
     </div>
 
   </main>
+
+  <script>
+    function setLevel(level, btn) {
+      document.body.setAttribute('data-level', level);
+      document.querySelectorAll('.level-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  </script>
+
 </body>
 </html>

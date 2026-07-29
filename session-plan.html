@@ -155,14 +155,16 @@
         <tbody>
           <tr><td class="time-cell">0:00–0:10</td><td><span class="badge badge-green">Hour 1</span></td><td>Welcome — intros, get into Codespaces, ice breaker</td></tr>
           <tr><td class="time-cell">0:10–0:25</td><td><span class="badge badge-green">Hour 1</span></td><td>Copilot demo — live demo of inline suggestions and Chat</td></tr>
-          <tr><td class="time-cell">0:25–0:55</td><td><span class="badge badge-green">Hour 1</span></td><td>Bug fixing — find and fix 10 bugs in the NovaPay dashboard</td></tr>
+          <tr><td class="time-cell">0:25–0:35</td><td><span class="badge badge-green">Hour 1</span></td><td><strong>Bug tutorial</strong> — everyone follows <code>how-to-find-fix-bugs.html</code> together: fix one worked example, learn the method</td></tr>
+          <tr><td class="time-cell">0:35–0:55</td><td><span class="badge badge-green">Hour 1</span></td><td>Independent bug hunt — find and fix the real 10 bugs using the same method</td></tr>
           <tr><td class="time-cell">0:55–1:00</td><td><span class="badge badge-green">Hour 1</span></td><td>Share out — 2–3 people share what they found</td></tr>
-          <tr><td class="time-cell">1:00–1:30</td><td><span class="badge" style="background:rgba(79,195,247,0.15);color:#4FC3F7">Level Up ⚡</span></td><td>Copilot bootcamp — the reveal, GitHub &amp; Codespaces concepts, 3 challenge rounds, golden rules. See <code>copilot-bootcamp.html</code> for full script.</td></tr>
-          <tr><td class="time-cell">1:30–1:45</td><td><span class="badge badge-amber">Hours 2–4</span></td><td>Brainstorm — what would make a bank app better for young people?</td></tr>
-          <tr><td class="time-cell">1:45–2:00</td><td><span class="badge badge-amber">Hours 2–4</span></td><td>Plan — pick a feature, sketch it, define inputs and outputs</td></tr>
-          <tr><td class="time-cell">2:00–3:30</td><td><span class="badge badge-amber">Hours 2–4</span></td><td>Build — groups build with Copilot against milestones (90 min)</td></tr>
-          <tr><td class="time-cell">3:30–3:45</td><td><span class="badge badge-amber">Hours 2–4</span></td><td>Demo prep — prepare a 2-minute walkthrough</td></tr>
-          <tr><td class="time-cell">3:45–4:00</td><td><span class="badge badge-amber">Hours 2–4</span></td><td>Demos + wrap — show and tell, celebrate, close</td></tr>
+          <tr><td class="time-cell">1:00–1:30</td><td><span class="badge" style="background:rgba(79,195,247,0.15);color:#4FC3F7">Level Up ⚡</span></td><td>Copilot bootcamp — the reveal, GitHub &amp; Codespaces concepts, 3 challenge rounds, golden rules</td></tr>
+          <tr><td class="time-cell">1:30–1:50</td><td><span class="badge badge-amber">Hours 2–4</span></td><td><strong>Quick feature tutorial</strong> — everyone follows <code>how-to-build-your-feature.html</code> together: builds the Savings Tracker from empty, teaches the fundamentals</td></tr>
+          <tr><td class="time-cell">1:50–2:05</td><td><span class="badge badge-amber">Hours 2–4</span></td><td>Brainstorm — now with the fundamentals fresh, what would make a bank app better for young people?</td></tr>
+          <tr><td class="time-cell">2:05–2:15</td><td><span class="badge badge-amber">Hours 2–4</span></td><td>Plan — pick a feature, sketch it, define inputs and outputs</td></tr>
+          <tr><td class="time-cell">2:15–3:35</td><td><span class="badge badge-amber">Hours 2–4</span></td><td>Feature creation — build their own idea with Copilot against milestones (80 min)</td></tr>
+          <tr><td class="time-cell">3:35–3:45</td><td><span class="badge badge-amber">Hours 2–4</span></td><td>Feature testing — <code>feature-test-plan.html</code>, try to break it before demoing</td></tr>
+          <tr><td class="time-cell">3:45–4:00</td><td><span class="badge badge-amber">Hours 2–4</span></td><td>Show &amp; tell — demos, celebrate, close</td></tr>
         </tbody>
       </table>
     </div>
@@ -205,13 +207,23 @@
           <div class="callout callout-amber"><div class="callout-label amber">Timing</div>Keep this to 15 minutes. Don't over-explain — they'll learn by doing.</div>
         </div>
 
+        <div class="segment" id="bugtutorial">
+          <div class="segment-header">
+            <span class="segment-time">0:25–0:35</span>
+            <span class="segment-title">Bug Tutorial — everyone together</span>
+            <span class="segment-dur">10 min</span>
+          </div>
+          <p>Put <code>how-to-find-fix-bugs.html</code> on screen (or have everyone open it). Walk through the worked example together — a made-up bug, not one of the real 10 — so everyone sees the exact method (Look → Use → Read → Fix → Test) before touching the real dashboard.</p>
+          <div class="callout callout-green"><div class="callout-label green">Why a shared tutorial first</div>This isn't a spoiler — the worked example is deliberately fake. It means every student starts the real hunt already knowing the technique, rather than guessing at a method while also hunting for bugs.</div>
+        </div>
+
         <div class="segment" id="bugs">
           <div class="segment-header">
-            <span class="segment-time">0:25–0:55</span>
-            <span class="segment-title">Bug Fixing Exercise</span>
-            <span class="segment-dur">30 min</span>
+            <span class="segment-time">0:35–0:55</span>
+            <span class="segment-title">Independent Bug Hunt</span>
+            <span class="segment-dur">20 min</span>
           </div>
-          <p>Participants are already in their Codespaces with <code>bank-dashboard.html</code> open. Put the bug hunt brief on the projector (<code>bug-hunt-screen.html</code>) and step back.</p>
+          <p>Now they apply the same method to the real dashboard. Put the bug hunt brief on the projector (<code>bug-hunt-screen.html</code>) and step back.</p>
           <div class="callout callout-green"><div class="callout-label green">The brief (on screen)</div>"The NovaPay dashboard has bugs hidden across the HTML, CSS, and JavaScript. Find and fix as many as you can. For each one: write down what was wrong, how you found it, and what you changed."</div>
           <p><strong>The 10 bugs by difficulty:</strong></p>
           <table class="data-table">
@@ -252,9 +264,19 @@
       </div>
       <div class="hour-body">
 
+        <div class="segment" id="featuretutorial">
+          <div class="segment-header">
+            <span class="segment-time">1:30–1:50</span>
+            <span class="segment-title">Quick Feature Tutorial — everyone together</span>
+            <span class="segment-dur">20 min</span>
+          </div>
+          <p>Before anyone brainstorms their own idea, everyone builds the same thing once: a Savings Goal Tracker, from an empty starter file, following <code>how-to-build-your-feature.html</code> step by step. This teaches the actual fundamentals — comment, Tab, save, test, repeat — on a guided, low-stakes example.</p>
+          <div class="callout callout-green"><div class="callout-label green">Why build something before brainstorming</div>Students who've never done this before freeze on a blank page with an open-ended idea. Doing one guided build first means the brainstorm and creation phases start from confidence and a working method, not from zero.</div>
+        </div>
+
         <div class="segment" id="brainstorm">
           <div class="segment-header">
-            <span class="segment-time">1:30–1:45</span>
+            <span class="segment-time">1:50–2:05</span>
             <span class="segment-title">Brainstorm</span>
             <span class="segment-dur">15 min</span>
           </div>
@@ -274,14 +296,14 @@
               <tr><td>Fraud Alert Simulator</td><td>⭐⭐⭐</td><td>17–18s — logic heavy</td></tr>
             </tbody>
           </table>
-          <div class="callout callout-green"><div class="callout-label green">Recommended default</div>Savings Goal Tracker. Visual, clear inputs and outputs, works at any skill level, and has an obvious stretch path.</div>
+          <div class="callout callout-green"><div class="callout-label green">Recommended default</div>You've just built a Savings Goal Tracker in the tutorial — so that one's off the table for this part, on purpose. If a group is stuck, point them at <strong>Spending Category Cards</strong> or <strong>Currency Converter</strong> instead — similar difficulty, genuinely different idea.</div>
         </div>
 
         <div class="segment" id="plan">
           <div class="segment-header">
-            <span class="segment-time">1:45–2:00</span>
+            <span class="segment-time">2:05–2:15</span>
             <span class="segment-title">Plan</span>
-            <span class="segment-dur">15 min</span>
+            <span class="segment-dur">10 min</span>
           </div>
           <p>Each group sketches on paper or a shared doc. Four questions to answer:</p>
           <ol>
@@ -296,17 +318,17 @@
 
         <div class="segment" id="build">
           <div class="segment-header">
-            <span class="segment-time">2:00–3:30</span>
-            <span class="segment-title">Build</span>
-            <span class="segment-dur">90 min</span>
+            <span class="segment-time">2:15–3:35</span>
+            <span class="segment-title">Feature Creation</span>
+            <span class="segment-dur">80 min</span>
           </div>
-          <p>Groups build in Codespaces. Put <code>milestone-screen.html</code> on the projector and leave it there — it has a built-in 90-minute timer and Copilot tips by year group. Give Y9–Y10 the <code>starter-template.html</code> file; Y11+ start from blank.</p>
+          <p>Groups build their own idea in Codespaces — this is different from the shared tutorial they already completed. Put <code>milestone-screen.html</code> on the projector and leave it there — it has a built-in timer and Copilot tips by year group. Y9–Y10 can still lean on <code>starter-template.html</code> patterns from the tutorial; Y11+ work from blank.</p>
           <table class="data-table">
             <thead><tr><th>Milestone</th><th>Target time</th><th>What it means</th></tr></thead>
             <tbody>
-              <tr><td>🏗️ HTML structure done</td><td class="time-cell">2:30</td><td>Page has the right sections and inputs — even if unstyled</td></tr>
-              <tr><td>🎨 Styled + basic JS working</td><td class="time-cell">3:10</td><td>Looks reasonable and does something when you interact</td></tr>
-              <tr><td>✨ Polish / stretch feature</td><td class="time-cell">3:30</td><td>Add one extra: validation, animation, or a second feature</td></tr>
+              <tr><td>🏗️ HTML structure done</td><td class="time-cell">2:40</td><td>Page has the right sections and inputs — even if unstyled</td></tr>
+              <tr><td>🎨 Styled + basic JS working</td><td class="time-cell">3:15</td><td>Looks reasonable and does something when you interact</td></tr>
+              <tr><td>✨ Polish / stretch feature</td><td class="time-cell">3:35</td><td>Add one extra: validation, animation, or a second feature</td></tr>
             </tbody>
           </table>
           <p><strong>Copilot prompting tips to put on screen:</strong></p>
@@ -329,11 +351,12 @@
 
         <div class="segment" id="demoprep">
           <div class="segment-header">
-            <span class="segment-time">3:30–3:45</span>
-            <span class="segment-title">Demo Prep</span>
-            <span class="segment-dur">15 min</span>
+            <span class="segment-time">3:35–3:45</span>
+            <span class="segment-title">Feature Testing</span>
+            <span class="segment-dur">10 min</span>
           </div>
-          <p>Each group prepares a <strong>2-minute walkthrough</strong>. Three questions to answer:</p>
+          <p>Code freeze. Everyone opens <code>feature-test-plan.html</code> and tries to break their own feature on purpose before showing it to anyone — empty fields, negative numbers, huge numbers. Fix anything that genuinely breaks; log the rest.</p>
+          <p>Then, once tested, each group prepares a <strong>2-minute walkthrough</strong>. Three questions to answer:</p>
           <ol>
             <li><strong>What does it do?</strong> Show it working.</li>
             <li><strong>How did Copilot help you?</strong> One specific example.</li>
@@ -345,12 +368,12 @@
         <div class="segment" id="demos">
           <div class="segment-header">
             <span class="segment-time">3:45–4:00</span>
-            <span class="segment-title">Demos + Wrap-Up</span>
+            <span class="segment-title">Show &amp; Tell</span>
             <span class="segment-dur">15 min</span>
           </div>
           <p>Each group demos (2 min each). After each one ask: <em>"What did you like about that?"</em> and <em>"What would you add?"</em></p>
           <p><strong>Your closing (2–3 minutes):</strong></p>
-          <div class="blockquote">"Today you went from a bug-ridden page to a working feature — starting from nothing except an idea. The way you worked today is genuinely how it's done in real development: pick a problem, sketch a solution, build incrementally, demo, get feedback.<br><br>Copilot didn't build it for you. You told it what you needed, you checked whether it was right, and you made the decisions. That skill — knowing what to ask and whether to trust the answer — is exactly what makes a good developer."</div>
+          <div class="blockquote">"Today you went from a bug-ridden page to a working feature — starting from nothing except an idea. The way you worked today is genuinely how it's done in real development: pick a problem, sketch a solution, build incrementally, test it, demo, get feedback.<br><br>Copilot didn't build it for you. You told it what you needed, you checked whether it was right, and you made the decisions. That skill — knowing what to ask and whether to trust the answer — is exactly what makes a good developer."</div>
         </div>
 
       </div>

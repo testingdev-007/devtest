@@ -100,8 +100,8 @@
     <div class="glance">
       <div class="glance-item"><div class="glance-time">0:00–1:00</div><div class="glance-label">Bug Hunt</div></div>
       <div class="glance-item"><div class="glance-time">1:00–1:30</div><div class="glance-label">Level Up</div></div>
-      <div class="glance-item"><div class="glance-time">1:30–2:00</div><div class="glance-label">Brainstorm</div></div>
-      <div class="glance-item"><div class="glance-time">2:00–4:00</div><div class="glance-label">Build + Demo</div></div>
+      <div class="glance-item"><div class="glance-time">1:30–2:15</div><div class="glance-label">Tutorial + Plan</div></div>
+      <div class="glance-item"><div class="glance-time">2:15–4:00</div><div class="glance-label">Create + Show</div></div>
     </div>
 
     <!-- ══════════ HOUR 1 ══════════ -->
@@ -130,7 +130,13 @@
       </div>
 
       <div class="seg">
-        <div class="seg-head"><span class="seg-time">0:25</span><span class="seg-title">Bug hunt</span><span class="seg-dur">30 min</span></div>
+        <div class="seg-head"><span class="seg-time">0:25</span><span class="seg-title">Bug tutorial — everyone together</span><span class="seg-dur">10 min</span></div>
+        <div class="step"><div class="step-box"></div><div class="step-text">Everyone opens <code>how-to-find-fix-bugs.html</code> and follows the worked (fake) example together</div></div>
+        <div class="callout c-blue">This is deliberately not one of the real 10 bugs — it teaches the method (Look → Use → Read → Fix → Test) before anyone touches the real dashboard.</div>
+      </div>
+
+      <div class="seg">
+        <div class="seg-head"><span class="seg-time">0:35</span><span class="seg-title">Bug hunt — on your own</span><span class="seg-dur">20 min</span></div>
         <div class="step"><div class="step-box"></div><div class="step-text">Put <code>bug-hunt-screen.html</code> on the projector, leave it up</div></div>
         <div class="step"><div class="step-box"></div><div class="step-text">Remind them to log finds in <code>bug-test-plan.html</code> (or the paper version) as they go</div></div>
         <div class="step"><div class="step-box"></div><div class="step-text">Step back — let them use Nova in Copilot Chat</div></div>
@@ -197,15 +203,21 @@
       </div>
 
       <div class="seg">
-        <div class="seg-head"><span class="seg-time">1:45</span><span class="seg-title">Plan on paper</span><span class="seg-dur">10 min</span></div>
-        <div class="step"><div class="step-box"></div><div class="step-text">Slide 3 (4 questions) then slide 4 (5-min timer) — keyboards down, paper only</div></div>
-        <div class="say"><div class="say-label">Say this</div>"Keyboards down. Every minute you plan saves five minutes of confused coding. Your sketch becomes your Copilot prompts."</div>
+        <div class="seg-head"><span class="seg-time">1:30</span><span class="seg-title">Feature tutorial — everyone together</span><span class="seg-dur">20 min</span></div>
+        <div class="step"><div class="step-box"></div><div class="step-text">Everyone opens <code>how-to-build-your-feature.html</code> and follows it together — a Savings Tracker, built from a genuinely blank file</div></div>
+        <div class="callout c-blue">This teaches every technique they'll need: page skeleton, colours, header, forms, then the logic. Same idea for everyone, on purpose — the brainstorm right after is where they pick something different.</div>
       </div>
 
       <div class="seg">
-        <div class="seg-head"><span class="seg-time">1:55</span><span class="seg-title">Demo the finished example</span><span class="seg-dur">5 min</span></div>
-        <div class="step"><div class="step-box"></div><div class="step-text">Open <code>example-feature.html</code> on the projector — use it live, break it on purpose, fix it, show the celebration</div></div>
-        <div class="say"><div class="say-label">Say this</div>"This is what 'done' looks like. Notice three things: inputs, a calculation, a result. Every feature today has those same three parts."</div>
+        <div class="seg-head"><span class="seg-time">1:50</span><span class="seg-title">Brainstorm</span><span class="seg-dur">15 min</span></div>
+        <div class="step"><div class="step-box"></div><div class="step-text">Slides 1–2 on <code>brainstorm-screen.html</code> — popcorn round, then pick an idea</div></div>
+        <div class="callout c-green">Stuck group? Point at the back-pocket gallery on slide 2 — just not the Savings Tracker, they've already built that one in the tutorial.</div>
+      </div>
+
+      <div class="seg">
+        <div class="seg-head"><span class="seg-time">2:05</span><span class="seg-title">Plan on paper</span><span class="seg-dur">10 min</span></div>
+        <div class="step"><div class="step-box"></div><div class="step-text">Slide 3 (4 questions) then slide 4 (timer) — keyboards down, paper only</div></div>
+        <div class="say"><div class="say-label">Say this</div>"Keyboards down. Every minute you plan saves five minutes of confused coding. Your sketch becomes your Copilot prompts."</div>
       </div>
     </div>
 
@@ -213,45 +225,42 @@
     <div class="hour">
       <div class="hour-header">
         <span class="hour-tag" style="background:var(--red)">Main event</span>
-        <span class="hour-title">Build + Demo</span>
-        <span class="hour-time">2:00–4:00</span>
+        <span class="hour-title">Feature Creation + Testing + Show &amp; Tell</span>
+        <span class="hour-time">2:15–4:00</span>
       </div>
 
       <div class="seg">
-        <div class="seg-head"><span class="seg-time">2:00</span><span class="seg-title">Build Sprint 1 — structure</span><span class="seg-dur">30 min</span></div>
+        <div class="seg-head"><span class="seg-time">2:15</span><span class="seg-title">Feature creation — first half</span><span class="seg-dur">25 min</span></div>
         <div class="step"><div class="step-box"></div><div class="step-text">Open <code>milestone-screen.html</code>, start its timer, set milestone 1 to "In Progress"</div></div>
-        <div class="do-list">
-          <div class="do-item">Y9–Y10 open <code>starter-template.html</code></div>
-          <div class="do-item">Y11–Y13 start a new blank file</div>
-        </div>
+        <div class="step"><div class="step-box"></div><div class="step-text">Everyone creates a <strong>new file</strong> for their own idea and copies the colours/header across from <code>practice-feature.html</code> (built in the tutorial) to keep the NovaPay look</div></div>
         <div class="say"><div class="say-label">Say this — the method</div>"One: write a comment describing the next small thing. Two: let Copilot suggest, press Tab. Three: save, check Live Server. Four: if it's wrong, ask Nova why. Small steps — comment, code, check."</div>
-        <div class="callout c-blue">Target by 2:30: heading exists, all inputs exist, a button exists, opens in Live Server without errors. Ugly is fine.</div>
+        <div class="callout c-blue">Target by 2:40: heading exists, all inputs exist, a button exists, opens in Live Server without errors. Ugly is fine.</div>
       </div>
 
       <div class="seg">
-        <div class="seg-head"><span class="seg-time">2:30</span><span class="seg-title">Checkpoint</span><span class="seg-dur">5 min</span></div>
+        <div class="seg-head"><span class="seg-time">2:40</span><span class="seg-title">Checkpoint</span><span class="seg-dur">5 min</span></div>
         <div class="step"><div class="step-box"></div><div class="step-text">Every group says one sentence: what's working, what's next</div></div>
         <div class="step"><div class="step-box"></div><div class="step-text">Advance milestone 1 on screen</div></div>
       </div>
 
       <div class="seg">
-        <div class="seg-head"><span class="seg-time">2:35</span><span class="seg-title">Build Sprint 2 — make it work</span><span class="seg-dur">55 min</span></div>
-        <div class="step"><div class="step-box"></div><div class="step-text">Milestone 2 to "In Progress" — this sprint is the JavaScript + styling</div></div>
+        <div class="seg-head"><span class="seg-time">2:45</span><span class="seg-title">Feature creation — second half</span><span class="seg-dur">50 min</span></div>
+        <div class="step"><div class="step-box"></div><div class="step-text">Milestone 2 to "In Progress" — this stretch is the JavaScript + styling</div></div>
         <div class="callout c-amber"><strong>At 3:20 — hard scope call for anyone not working yet:</strong> "Strip it back. One input, one button, one number on screen. Get that working, then add back." Say it to the whole room, not just the stuck group.</div>
         <div class="callout c-green">Groups that finish everything: milestone screen's right panel has stretch goals by year group — click the Y12–13 tab for the hardest ones.</div>
       </div>
 
       <div class="seg">
-        <div class="seg-head"><span class="seg-time">3:30</span><span class="seg-title">Demo prep — code freeze</span><span class="seg-dur">10 min</span></div>
-        <div class="say"><div class="say-label">Say this</div>"Code freeze. Stop adding, start rehearsing. Two minutes each: show it working, one way Copilot or Nova helped, one thing you'd add with more time. Run your demo path once before you present it — no live improvising."</div>
+        <div class="seg-head"><span class="seg-time">3:35</span><span class="seg-title">Feature testing — code freeze</span><span class="seg-dur">10 min</span></div>
+        <div class="say"><div class="say-label">Say this</div>"Code freeze. Open your Feature Test Plan and try to break your own feature on purpose — empty fields, negative numbers, huge numbers. Fix what genuinely breaks."</div>
         <div class="step"><div class="step-box"></div><div class="step-text">Point every group at <code>feature-test-plan.html</code> — the ready-to-demo checklist is their rehearsal for these 10 minutes</div></div>
       </div>
 
       <div class="seg">
-        <div class="seg-head"><span class="seg-time">3:40</span><span class="seg-title">Demos + close</span><span class="seg-dur">20 min</span></div>
+        <div class="seg-head"><span class="seg-time">3:45</span><span class="seg-title">Show &amp; tell</span><span class="seg-dur">15 min</span></div>
         <div class="step"><div class="step-box"></div><div class="step-text">Each group: 2 min. Room answers "what did you like?" after each</div></div>
         <div class="callout c-red">If a demo breaks live: "Congratulations — a live demo failure. That's the most authentic developer experience of the day." Then let them show it in the editor instead.</div>
-        <div class="say"><div class="say-label">Your closing</div>"Two hours ago these were sketches on paper. You described what you wanted, Copilot helped you build it, you tested it, you fixed it, you shipped a demo. That loop — describe, build, test, fix — is the actual job. The tools will keep changing. The loop won't."</div>
+        <div class="say"><div class="say-label">Your closing</div>"Two hours ago you built one feature together, step by step. Then you described your own idea, Copilot helped you build it, you tested it, you fixed it, you shipped a demo. That loop — describe, build, test, fix — is the actual job. The tools will keep changing. The loop won't."</div>
       </div>
     </div>
 
