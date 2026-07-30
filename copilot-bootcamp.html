@@ -283,9 +283,14 @@
         <ul>
           <li>Participants type the comment into <code>challenge.js</code></li>
           <li>Copilot should suggest the function body — they press Tab to accept</li>
-          <li>First working result = winner</li>
-          <li>When someone finishes, ask them to read their function out loud</li>
+          <li>Add <code>console.log(convertToEuros(100));</code> underneath, save</li>
+          <li>Open a terminal (<code>Ctrl+`</code>) → run <code>node challenge.js</code> → the actual result prints</li>
+          <li>First working, <em>proven</em> result = winner</li>
         </ul>
+        <div class="tip tip-green">
+          <div class="tip-label green">Why the console.log step matters</div>
+          A function sitting in a blank JS file with nothing calling it is invisible — Copilot writes it, but nobody sees it actually work. Running it via Node makes the round genuinely testable rather than theoretical.
+        </div>
         <div class="tip tip-green">
           <div class="tip-label green">If Copilot doesn't suggest automatically</div>
           Tell them to press <code>Alt+\</code> (Windows) or <code>Option+\</code> (Mac) to trigger a suggestion manually.
@@ -316,7 +321,7 @@
   → formats the balance with a £ sign and 2 decimal places
 
 Best result wins. You get ONE message.</pre>
-        <p><strong>After 3 minutes:</strong> Ask 3–4 pairs to read their Copilot message out loud, then show the code they got back. Group votes on the best result.</p>
+        <p><strong>After 3 minutes:</strong> tell them to add <code>console.log(theirFunctionName("Sarah", 250));</code> underneath, save, and run <code>node challenge.js</code> in the terminal to see the real greeting print. Ask 3–4 pairs to read their Copilot message out loud, then show the actual printed result. Group votes on the best one.</p>
         <div class="say">
           <div class="say-label">After the round</div>
           "The difference between a great result and a mediocre one came down to how specific the prompt was. The more constraints you gave — the format, the £ sign, the decimal places — the better the code. This is called prompt engineering and it's a real skill that real developers use every day."
@@ -348,9 +353,17 @@ Best result wins. You get ONE message.</pre>
         <p><strong>Good Copilot Chat prompt to suggest if they're stuck:</strong></p>
         <pre>"Can you review this function for bugs? 
 Pay attention to how the interest rate is being used."</pre>
+        <div class="tip tip-green">
+          <div class="tip-label green">Make the bug visible, not just readable</div>
+          Add <code>console.log(calculateMonthlyPayment(1000, 5, 1));</code> underneath, save, run <code>node challenge.js</code>. A real 5% loan wouldn't cost that much a month — seeing the actual wrong number is far more convincing than reading the code and taking someone's word for it.
+        </div>
         <div class="tip tip-amber">
           <div class="tip-label amber">Why this round matters</div>
           This demonstrates that Copilot can review its own (or anyone else's) code. That's genuinely useful. It also reinforces Bug 9 from the dashboard exercise — same class of error. Watch for the "oh, that's the same thing!" moment.
+        </div>
+        <div class="tip tip-amber">
+          <div class="tip-label amber">If Copilot refuses, flags "SQL injection," or otherwise acts oddly</div>
+          This can happen if the code is asked about directly in the chat box without actually being saved in <code>challenge.js</code> first — Copilot's safety heuristics occasionally over-trigger on financial-sounding code (payment, principal, rate) with no real file behind it. The fix is exactly what the instructions say: make sure the function is genuinely pasted and saved in <code>challenge.js</code> before asking Chat to review it, not just typed into the chat message itself.
         </div>
         <div class="say">
           <div class="say-label">After the round</div>

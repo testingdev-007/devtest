@@ -209,9 +209,14 @@
     <div class="section" id="m3">
       <div class="section-title">Module 3 — What Copilot actually does</div>
       <div class="lesson-card">
-        <div class="lesson-head"><div class="lesson-icon" style="background:rgba(0,200,150,0.2)">🤖</div><div class="lesson-title">Two features people lump together as one</div></div>
+        <div class="lesson-head"><div class="lesson-icon" style="background:rgba(0,200,150,0.2)">🤖</div><div class="lesson-title">Three modes people lump together as one</div></div>
         <p><strong>Inline completions (Tab-complete)</strong> — you type a comment describing what you want, and Copilot suggests code as grey "ghost text." Press Tab to accept. This is prediction, not conversation — it's reading the surrounding code and guessing the most likely continuation.</p>
-        <p><strong>Copilot Chat</strong> — a proper conversation. You ask a question in plain English, it answers, you can ask follow-ups. This is where Nova lives (see Module 4) — Chat is the feature that reads custom instructions files.</p>
+        <p><strong>Ask/Chat mode</strong> — a proper conversation. You ask a question in plain English, it answers, you can ask follow-ups, but it doesn't touch your files directly. This is where Nova's restraint during the Bug Hunt works best — it's designed for conversation, not action.</p>
+        <p><strong>Agent mode</strong> — a different beast entirely. Instead of just talking, it reads and edits files directly, autonomously, across multiple steps, with far less friction. Nova's instructions still load here too — but because Agent mode's whole purpose is to <em>act</em>, it's noticeably more likely to just fix things when asked, even with the same restraint instructions present. Nova's file has an explicit hard rule for this now: one small change, then stop and explain, during the Bug Hunt specifically.</p>
+        <div class="callout c-red">
+          <div class="c-label red">Worth testing yourself before Friday</div>
+          Switch to Agent mode in your own test Codespace and ask it to "fix the bugs in this file" during a mock Bug Hunt. See whether it holds back as intended, or fixes several bugs in one go. Either way, you'll know what to expect from students discovering the mode switch.
+        </div>
         <div class="callout c-amber">
           <div class="c-label amber">The one thing worth knowing cold</div>
           Copilot is confidently wrong a meaningful amount of the time. It's pattern-matching against code it's seen before, not reasoning about your specific problem from scratch. This is the single most important thing to model for students: always test what it gives you, never trust it blindly.
@@ -219,7 +224,7 @@
 
         <div class="try-it-box">
           <div class="try-it-label">🔗 Try it on the real thing</div>
-          <p>In your test Codespace, open a blank line in any file and type <code>// function that adds tax to a price</code> then wait for the ghost text, then press Tab. Then open Copilot Chat and ask the same thing as a question instead. Notice how differently the two interactions feel.</p>
+          <p>In your test Codespace, open a blank line in any file and type <code>// function that adds tax to a price</code> then wait for the ghost text, then press Tab. Then open Ask mode and ask the same thing as a question instead. Then try Agent mode. Notice how differently all three feel.</p>
         </div>
       </div>
     </div>

@@ -531,6 +531,23 @@
         </div>
       </div>
 
+      <div class="strategy-card" style="border-color:rgba(255,71,87,0.3)">
+        <div class="strategy-header">
+          <div class="strategy-icon" style="background:var(--red-dim)">⚠️</div>
+          <div>
+            <div class="strategy-title">Watch for Agent mode specifically — it's more powerful than Chat</div>
+            <div class="strategy-sub">Discovered during facilitator testing, worth knowing before Friday</div>
+          </div>
+        </div>
+        <div class="strategy-body">
+          <p>Copilot in VS Code has two modes: <strong>Ask/Chat mode</strong> (converses, suggests, doesn't touch files) and <strong>Agent mode</strong> (reads and edits files directly, autonomously, multi-step). Nova's instructions apply in both — but Agent mode's whole purpose is to act, so a student who switches to it and says "fix this" is far more likely to get changes actually applied than one using regular Chat, even with Nova's restraint instructions present.</p>
+          <p>Nova's file has been updated with an explicit hard rule for this: in Agent mode during the Bug Hunt, it should make one small change, then stop and explain, rather than continuing autonomously. Worth testing yourself before the session — try switching to Agent mode and asking it to "fix the bugs in this file," and see whether it behaves as expected.</p>
+          <div class="callout" style="background:rgba(255,71,87,0.08);border:1px solid rgba(255,71,87,0.25)">
+            <strong>If a group discovers Agent mode fixes multiple bugs at once anyway:</strong> this is the same teaching moment as the "fix everything" scenario above, just a more powerful version of it. Stop the room, look at what actually got fixed together, and ask "did switching modes help you understand this any better, or just get it done faster?" That distinction — speed versus understanding — is the whole point of the exercise either way.
+          </div>
+        </div>
+      </div>
+
       <div class="strategy-card">
         <div class="strategy-header">
           <div class="strategy-icon" style="background:var(--amber-dim)">📋</div>

@@ -226,50 +226,8 @@
 
   <!-- SLIDE 5: ROUND 1 BRIEF -->
   <div class="slide" data-slide="5">
-    <div class="challenge-num">Round 1 of 3 <span class="badge badge-green">Comment Race</span></div>
-    <div class="challenge-title">Type the comment.<br>Let Copilot<br>write the code.</div>
-    <div class="challenge-task">
-      <pre>// function that converts an amount in pounds to euros
-// use a rate of 1.17, rounded to 2 decimal places</pre>
-    </div>
-    <p style="margin-top:20px;font-size:0.9em;color:var(--muted)">Type this into <strong style="color:var(--white)">challenge.js</strong> · Press Tab to accept Copilot's suggestion · First working function wins</p>
-  </div>
-
-  <!-- SLIDE 6: ROUND 1 TIMER -->
-  <div class="slide" data-slide="6" data-timer="180">
-    <div class="timer-round">Round 1 · Comment Race</div>
-    <div class="timer-display" id="timer-6">3:00</div>
-    <div class="timer-label">seconds remaining</div>
-    <button class="timer-btn" id="btn-6" onclick="toggleTimer(6, 180)">Start Timer</button>
-  </div>
-
-  <!-- SLIDE 7: ROUND 2 BRIEF -->
-  <div class="slide" data-slide="7">
-    <div class="challenge-num">Round 2 of 3 <span class="badge badge-amber">Best Prompt</span></div>
-    <div class="challenge-title">One message.<br>Best code wins.</div>
-    <div class="challenge-task">
-      <pre>Write a function that:
-  → takes a person's name + their account balance
-  → returns: "Hi Sarah! Your balance is £250.00"
-  → formats balance with £ and 2 decimal places
-
-You get ONE Copilot Chat message. Make it count.</pre>
-    </div>
-    <p style="margin-top:20px;font-size:0.9em;color:var(--muted)">Open Copilot Chat · Write your one message · Group votes on the best result</p>
-  </div>
-
-  <!-- SLIDE 8: ROUND 2 TIMER -->
-  <div class="slide" data-slide="8" data-timer="180">
-    <div class="timer-round">Round 2 · Best Prompt</div>
-    <div class="timer-display" id="timer-8">3:00</div>
-    <div class="timer-label">then share your prompt with the room</div>
-    <button class="timer-btn" id="btn-8" onclick="toggleTimer(8, 180)">Start Timer</button>
-  </div>
-
-  <!-- SLIDE 9: ROUND 3 BRIEF -->
-  <div class="slide" data-slide="9">
-    <div class="challenge-num">Round 3 of 3 <span class="badge badge-red">Bug Blitz</span></div>
-    <div class="challenge-title">Copilot wrote this.<br>Find the bug.</div>
+    <div class="challenge-num">Round 1 of 3 <span class="badge badge-red">Fix the Bug</span></div>
+    <div class="challenge-title">Copilot wrote this.<br>Now ask Copilot<br>to fix it.</div>
     <div class="challenge-task">
       <pre>function calculateMonthlyPayment(principal, annualRate, years) {
   const monthlyRate = annualRate / 12;
@@ -280,25 +238,79 @@ You get ONE Copilot Chat message. Make it count.</pre>
   return payment.toFixed(2);
 }</pre>
     </div>
-    <p style="margin-top:20px;font-size:0.9em;color:var(--muted)">Paste into <strong style="color:var(--white)">challenge.js</strong> · Ask Copilot Chat to review it · First to find the bug wins</p>
+    <div style="background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.3);border-radius:12px;padding:14px 20px;margin-top:16px;font-size:0.85em;color:#4AE8B2;text-align:left;max-width:600px">
+      <strong style="color:white">This is already sitting in your <code style="background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:4px">challenge.js</code></strong> — open it in your Codespace file panel, it's already there, no typing or pasting needed.
+    </div>
+    <p style="margin-top:16px;font-size:0.9em;color:var(--muted)">Open Copilot Chat · Ask it to review and fix this function · First working fix wins</p>
+    <div style="background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.3);border-radius:12px;padding:14px 20px;margin-top:12px;font-size:0.85em;color:#A89CFF;text-align:left;max-width:600px">
+      <strong style="color:white">Prove the fix actually works:</strong> underneath the function, add <code style="background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:4px">console.log(calculateMonthlyPayment(1000, 5, 1));</code> — save, open a terminal (<code style="background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:4px">Ctrl+`</code>), run <code style="background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:4px">node challenge.js</code>. A sensible monthly figure means it's fixed — still way too high means it isn't yet.
+    </div>
   </div>
 
-  <!-- SLIDE 10: ROUND 3 TIMER -->
-  <div class="slide" data-slide="10" data-timer="240">
-    <div class="timer-round">Round 3 · Bug Blitz</div>
-    <div class="timer-display" id="timer-10">4:00</div>
-    <div class="timer-label">use Copilot Chat to find it</div>
-    <button class="timer-btn" id="btn-10" onclick="toggleTimer(10, 240)">Start Timer</button>
+  <!-- SLIDE 6: ROUND 1 TIMER -->
+  <div class="slide" data-slide="6" data-timer="300">
+    <div class="timer-round">Round 1 · Fix the Bug</div>
+    <div class="timer-display" id="timer-6">5:00</div>
+    <div class="timer-label">ask Copilot Chat, then test with node</div>
+    <button class="timer-btn" id="btn-6" onclick="toggleTimer(6, 300)">Start Timer</button>
   </div>
 
-  <!-- SLIDE 11: BUG ANSWER -->
-  <div class="slide" data-slide="11">
-    <div class="eyebrow" style="color:var(--red)">The bug — Round 3</div>
+  <!-- SLIDE 7: ROUND 1 RECAP -->
+  <div class="slide" data-slide="7">
+    <div class="eyebrow" style="color:var(--red)">The bug — Round 1</div>
     <div style="font-size:2.2em;font-weight:900;letter-spacing:-0.04em;margin-bottom:24px">Same class as Bug 9<br>from the dashboard.</div>
     <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px 32px;max-width:720px;width:100%;text-align:left">
       <pre style="font-family:'JetBrains Mono',monospace;font-size:0.95em;line-height:1.7"><span style="background:rgba(255,71,87,0.2);color:#FF8A93;display:block;margin:0 -32px;padding:0 32px">- const monthlyRate = annualRate / 12;</span><span style="background:rgba(0,200,150,0.2);color:#4AE8B2;display:block;margin:0 -32px;padding:0 32px">+ const monthlyRate = annualRate / 100 / 12;</span></pre>
     </div>
-    <p style="margin-top:20px;font-size:0.95em;color:var(--muted);max-width:560px">Rate passed as e.g. <strong style="color:var(--white)">5</strong> (for 5%) but used as-is instead of converting to <strong style="color:var(--white)">0.05</strong>. Copilot wrote the bug. Then Copilot found it. Use it in both directions.</p>
+    <p style="margin-top:20px;font-size:0.95em;color:var(--muted);max-width:560px">Rate passed as e.g. <strong style="color:var(--white)">5</strong> (for 5%) but used as-is instead of converting to <strong style="color:var(--white)">0.05</strong>. Copilot wrote the bug. Then Copilot found and fixed it. Use it in both directions.</p>
+  </div>
+
+  <!-- SLIDE 8: ROUND 2 BRIEF -->
+  <div class="slide" data-slide="8">
+    <div class="challenge-num">Round 2 of 3 <span class="badge badge-green">Comment Race</span></div>
+    <div class="challenge-title">Type the comment.<br>Let Copilot<br>write the code.</div>
+    <div class="challenge-task">
+      <pre>// function that converts an amount in pounds to euros
+// use a rate of 1.17, rounded to 2 decimal places</pre>
+    </div>
+    <p style="margin-top:16px;font-size:0.9em;color:var(--muted)">Same <strong style="color:var(--white)">challenge.js</strong>, add this below the fixed function · Press Tab to accept Copilot's suggestion · First working function wins</p>
+    <div style="background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.3);border-radius:12px;padding:14px 20px;margin-top:12px;font-size:0.85em;color:#A89CFF;text-align:left;max-width:600px">
+      <strong style="color:white">Prove it actually works:</strong> add <code style="background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:4px">console.log(convertToEuros(100));</code> underneath, save, run <code style="background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:4px">node challenge.js</code> again — the new result prints too.
+    </div>
+  </div>
+
+  <!-- SLIDE 9: ROUND 2 TIMER -->
+  <div class="slide" data-slide="9" data-timer="180">
+    <div class="timer-round">Round 2 · Comment Race</div>
+    <div class="timer-display" id="timer-9">3:00</div>
+    <div class="timer-label">seconds remaining</div>
+    <button class="timer-btn" id="btn-9" onclick="toggleTimer(9, 180)">Start Timer</button>
+  </div>
+
+  <!-- SLIDE 10: ROUND 3 BRIEF -->
+  <div class="slide" data-slide="10">
+    <div class="challenge-num">Round 3 of 3 <span class="badge badge-amber">Best Prompt</span></div>
+    <div class="challenge-title">One message.<br>Best code wins.</div>
+    <div class="challenge-task">
+      <pre>Write a function that:
+  → takes a person's name + their account balance
+  → returns: "Hi Sarah! Your balance is £250.00"
+  → formats balance with £ and 2 decimal places
+
+You get ONE Copilot Chat message. Make it count.</pre>
+    </div>
+    <p style="margin-top:20px;font-size:0.9em;color:var(--muted)">Same <strong style="color:var(--white)">challenge.js</strong>, add it below the others · Open Copilot Chat · Write your one message · Group votes on the best result</p>
+    <div style="background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.3);border-radius:12px;padding:14px 20px;margin-top:12px;font-size:0.85em;color:#A89CFF;text-align:left;max-width:600px">
+      <strong style="color:white">Prove it works:</strong> add <code style="background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:4px">console.log(yourFunctionName("Sarah", 250));</code> underneath, save, run <code style="background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:4px">node challenge.js</code> to see the real greeting print out.
+    </div>
+  </div>
+
+  <!-- SLIDE 11: ROUND 3 TIMER -->
+  <div class="slide" data-slide="11" data-timer="180">
+    <div class="timer-round">Round 3 · Best Prompt</div>
+    <div class="timer-display" id="timer-11">3:00</div>
+    <div class="timer-label">then share your prompt with the room</div>
+    <button class="timer-btn" id="btn-11" onclick="toggleTimer(11, 180)">Start Timer</button>
   </div>
 
   <!-- SLIDE 12: GOLDEN RULES -->
