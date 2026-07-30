@@ -203,15 +203,15 @@
             </div>
             <div class="field">
               <label class="field-label">What was wrong?</label>
-              <textarea placeholder="e.g. The balance amount wasn't showing on the screen at all..." oninput="updateField(${i}, 'wrong', this.value)">${entry.wrong || ''}</textarea>
+              <textarea placeholder="e.g. The button didn't do what I expected when I clicked it..." oninput="updateField(${i}, 'wrong', this.value)">${entry.wrong || ''}</textarea>
             </div>
             <div class="field">
               <label class="field-label">How did you find it?</label>
-              <textarea placeholder="e.g. I looked at the page and the balance box looked empty, then asked Nova why..." oninput="updateField(${i}, 'found', this.value)">${entry.found || ''}</textarea>
+              <textarea placeholder="e.g. I tried clicking it, then checked the browser console for errors..." oninput="updateField(${i}, 'found', this.value)">${entry.found || ''}</textarea>
             </div>
             <div class="field">
               <label class="field-label">What did you change to fix it?</label>
-              <textarea placeholder="e.g. Changed the text colour from #F5F5F5 to #FFFFFF in the CSS..." oninput="updateField(${i}, 'fix', this.value)">${entry.fix || ''}</textarea>
+              <textarea placeholder="e.g. Fixed a typo in the code so the names matched up..." oninput="updateField(${i}, 'fix', this.value)">${entry.fix || ''}</textarea>
             </div>
             <div class="checkbox-row">
               <input type="checkbox" id="done-${i}" ${isComplete ? 'checked' : ''} onchange="updateField(${i}, 'done', this.checked)">

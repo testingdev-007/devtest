@@ -116,11 +116,12 @@
       <a class="nav-item" href="#reveal"><div class="nav-dot" style="background:var(--blue)"></div>1:00 The reveal</a>
       <a class="nav-item" href="#concepts"><div class="nav-dot" style="background:var(--blue)"></div>1:03 GitHub & Codespaces</a>
       <a class="nav-item" href="#rounds"><div class="nav-dot" style="background:var(--amber)"></div>1:08 Challenge rounds</a>
-      <a class="nav-item" href="#r1"><div class="nav-dot" style="background:var(--green)"></div>Round 1 · Comment Race</a>
-      <a class="nav-item" href="#r2"><div class="nav-dot" style="background:var(--green)"></div>Round 2 · Best Prompt</a>
-      <a class="nav-item" href="#r3"><div class="nav-dot" style="background:var(--red)"></div>Round 3 · Bug Blitz</a>
-      <a class="nav-item" href="#rules"><div class="nav-dot" style="background:var(--accent)"></div>1:25 Golden rules</a>
-      <a class="nav-item" href="#bridge"><div class="nav-dot" style="background:var(--muted)"></div>1:28 Bridge</a>
+      <a class="nav-item" href="#r1"><div class="nav-dot" style="background:var(--red)"></div>Round 1 · Fix the Bug</a>
+      <a class="nav-item" href="#r1recap"><div class="nav-dot" style="background:var(--red)"></div>Round 1 recap</a>
+      <a class="nav-item" href="#r2"><div class="nav-dot" style="background:var(--green)"></div>Round 2 · Comment Race</a>
+      <a class="nav-item" href="#r3"><div class="nav-dot" style="background:var(--amber)"></div>Round 3 · Best Prompt</a>
+      <a class="nav-item" href="#rules"><div class="nav-dot" style="background:var(--accent)"></div>1:24 Golden rules</a>
+      <a class="nav-item" href="#bridge"><div class="nav-dot" style="background:var(--muted)"></div>1:27 Bridge</a>
     </div>
     <div class="nav-section" style="margin-top:8px">
       <div class="nav-label">On screen</div>
@@ -143,7 +144,7 @@
     <!-- TIMING -->
     <div id="timing">
       <div class="section-title">How it fits into the day</div>
-      <p style="font-size:0.88em;color:var(--muted);margin-bottom:20px">Adding this block pushes brainstorm to 1:30. Build trims to 90 min, demo prep to 15 min. Everything still fits.</p>
+      <p style="font-size:0.88em;color:var(--muted);margin-bottom:20px">Level Up sits between the Bug Hunt and the Feature Tutorial. Times below match the full day exactly.</p>
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-time">0:55–1:00</div>
@@ -156,29 +157,34 @@
           <div class="tl-body"><div class="tl-label" style="color:var(--accent)">⚡ Level Up — this block</div><div class="tl-desc">The reveal · GitHub & Codespaces · 3 challenge rounds · golden rules</div></div>
         </div>
         <div class="tl-item">
-          <div class="tl-time">1:30–1:45</div>
+          <div class="tl-time">1:30–1:50</div>
           <div class="tl-line"><div class="tl-dot" style="background:var(--amber)"></div></div>
-          <div class="tl-body"><div class="tl-label">Brainstorm</div><div class="tl-desc">15 min (trimmed from 20)</div></div>
+          <div class="tl-body"><div class="tl-label">Feature Tutorial</div><div class="tl-desc">Everyone builds the Savings Tracker together, from scratch</div></div>
         </div>
         <div class="tl-item">
-          <div class="tl-time">1:45–2:00</div>
+          <div class="tl-time">1:50–2:05</div>
           <div class="tl-line"><div class="tl-dot" style="background:var(--amber)"></div></div>
-          <div class="tl-body"><div class="tl-label">Plan</div><div class="tl-desc">15 min (unchanged)</div></div>
+          <div class="tl-body"><div class="tl-label">Brainstorm</div><div class="tl-desc">15 min — their own idea</div></div>
         </div>
         <div class="tl-item">
-          <div class="tl-time">2:00–3:30</div>
+          <div class="tl-time">2:05–2:15</div>
           <div class="tl-line"><div class="tl-dot" style="background:var(--amber)"></div></div>
-          <div class="tl-body"><div class="tl-label">Build</div><div class="tl-desc">90 min (trimmed from 100)</div></div>
+          <div class="tl-body"><div class="tl-label">Plan</div><div class="tl-desc">10 min</div></div>
         </div>
         <div class="tl-item">
-          <div class="tl-time">3:30–3:45</div>
+          <div class="tl-time">2:15–3:35</div>
           <div class="tl-line"><div class="tl-dot" style="background:var(--amber)"></div></div>
-          <div class="tl-body"><div class="tl-label">Demo prep</div><div class="tl-desc">15 min (trimmed from 25)</div></div>
+          <div class="tl-body"><div class="tl-label">Feature Creation</div><div class="tl-desc">80 min, with a checkpoint at 2:40</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">3:35–3:45</div>
+          <div class="tl-line"><div class="tl-dot" style="background:var(--amber)"></div></div>
+          <div class="tl-body"><div class="tl-label">Feature Testing</div><div class="tl-desc">10 min</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-time">3:45–4:00</div>
           <div class="tl-line"><div class="tl-dot" style="background:var(--amber)"></div></div>
-          <div class="tl-body"><div class="tl-label">Demos + wrap</div><div class="tl-desc">15 min</div></div>
+          <div class="tl-body"><div class="tl-label">Show &amp; Tell</div><div class="tl-desc">15 min</div></div>
         </div>
       </div>
     </div>
@@ -254,94 +260,29 @@
     <!-- CHALLENGE ROUNDS -->
     <div class="segment-block" id="rounds">
       <div class="seg-header">
-        <span class="seg-time">1:08–1:25</span>
+        <span class="seg-time">1:08–1:24</span>
         <span class="seg-title">Three Challenge Rounds</span>
-        <span class="seg-dur">15 min</span>
+        <span class="seg-dur">16 min</span>
       </div>
       <div class="seg-body">
-        <p>Three rounds, 5 minutes each. Pairs compete. You keep the energy up. Use the <code>level-up-screen.html</code> slide deck — it has built-in countdown timers. Click to advance between rounds.</p>
-        <div class="tip tip-amber"><div class="tip-label amber">Setup</div>Tell everyone to open a new file in their Codespace: <strong>File → New File → save it as <code>challenge.js</code></strong>. That's where they'll write their challenge code.</div>
+        <p>Three rounds. Pairs compete. You keep the energy up. Use the <code>level-up-screen.html</code> slide deck — it has built-in countdown timers. Click to advance between rounds.</p>
+        <div class="tip tip-amber"><div class="tip-label amber">Setup — nothing to create</div><code>challenge.js</code> is already in everyone's repo with a buggy function pre-loaded — no file creation needed, just open it in the file panel.</div>
       </div>
     </div>
 
-    <!-- ROUND 1 -->
+    <!-- ROUND 1: FIX THE BUG -->
     <div class="segment-block" id="r1">
       <div class="seg-header">
-        <span class="seg-time">1:08–1:13</span>
-        <span class="seg-title">Round 1 — Comment Race</span>
-        <span class="seg-dur">5 min</span>
-      </div>
-      <div class="seg-body">
-        <div class="say">
-          <div class="say-label">Say this to intro the round</div>
-          "Round one. I'm going to put a comment on screen. Your job is to type it into your file and use Copilot's inline suggestion to complete the code. First pair with a working function wins. You've got 3 minutes on the clock."
-        </div>
-        <p><strong>Put this on screen (Slide 3 in the deck):</strong></p>
-        <pre>// function that converts an amount in pounds to euros
-// use a rate of 1.17, rounded to 2 decimal places</pre>
-        <p><strong>What to look for:</strong></p>
-        <ul>
-          <li>Participants type the comment into <code>challenge.js</code></li>
-          <li>Copilot should suggest the function body — they press Tab to accept</li>
-          <li>Add <code>console.log(convertToEuros(100));</code> underneath, save</li>
-          <li>Open a terminal (<code>Ctrl+`</code>) → run <code>node challenge.js</code> → the actual result prints</li>
-          <li>First working, <em>proven</em> result = winner</li>
-        </ul>
-        <div class="tip tip-green">
-          <div class="tip-label green">Why the console.log step matters</div>
-          A function sitting in a blank JS file with nothing calling it is invisible — Copilot writes it, but nobody sees it actually work. Running it via Node makes the round genuinely testable rather than theoretical.
-        </div>
-        <div class="tip tip-green">
-          <div class="tip-label green">If Copilot doesn't suggest automatically</div>
-          Tell them to press <code>Alt+\</code> (Windows) or <code>Option+\</code> (Mac) to trigger a suggestion manually.
-        </div>
-        <div class="say">
-          <div class="say-label">After the round — say this</div>
-          "Notice what just happened. You didn't write a single line of code. You described what you wanted, and Copilot wrote it. That's the skill — describing it precisely. Vague comment, vague code."
-        </div>
-      </div>
-    </div>
-
-    <!-- ROUND 2 -->
-    <div class="segment-block" id="r2">
-      <div class="seg-header">
-        <span class="seg-time">1:13–1:18</span>
-        <span class="seg-title">Round 2 — Best Prompt</span>
-        <span class="seg-dur">5 min</span>
-      </div>
-      <div class="seg-body">
-        <div class="say">
-          <div class="say-label">Say this</div>
-          "Round two. This time there's no winner by speed — there's a winner by quality. You've got one message in Copilot Chat. Just one. Use it to get Copilot to write a function that takes a name and a balance, and returns a personalised greeting. You've got 3 minutes. Go."
-        </div>
-        <p><strong>Put this on screen (Slide 5):</strong></p>
-        <pre>One Copilot Chat message. Get it to write a function that:
-  → takes a person's name and their account balance
-  → returns a greeting like: "Hi Sarah! Your balance is £250.00"
-  → formats the balance with a £ sign and 2 decimal places
-
-Best result wins. You get ONE message.</pre>
-        <p><strong>After 3 minutes:</strong> tell them to add <code>console.log(theirFunctionName("Sarah", 250));</code> underneath, save, and run <code>node challenge.js</code> in the terminal to see the real greeting print. Ask 3–4 pairs to read their Copilot message out loud, then show the actual printed result. Group votes on the best one.</p>
-        <div class="say">
-          <div class="say-label">After the round</div>
-          "The difference between a great result and a mediocre one came down to how specific the prompt was. The more constraints you gave — the format, the £ sign, the decimal places — the better the code. This is called prompt engineering and it's a real skill that real developers use every day."
-        </div>
-      </div>
-    </div>
-
-    <!-- ROUND 3 -->
-    <div class="segment-block" id="r3">
-      <div class="seg-header">
-        <span class="seg-time">1:18–1:25</span>
-        <span class="seg-title">Round 3 — Bug Blitz</span>
+        <span class="seg-time">1:08–1:15</span>
+        <span class="seg-title">Round 1 — Fix the Bug</span>
         <span class="seg-dur">7 min</span>
       </div>
       <div class="seg-body">
         <div class="say">
-          <div class="say-label">Say this</div>
-          "Final round. Copilot wrote this function. It looks right. It might be right. Your job is to find out — using Copilot itself. Paste the code into your file and ask Copilot Chat to review it. First pair to correctly identify the bug wins."
+          <div class="say-label">Say this to intro the round</div>
+          "Round one. Open <code>challenge.js</code> — there's already a function in there. It looks right. It isn't. Ask Copilot Chat to review and fix it, then prove your fix actually works. First working, proven fix wins."
         </div>
-        <p><strong>Put this on screen (Slide 7) — participants paste it into <code>challenge.js</code>:</strong></p>
+        <p><strong>Already sitting in everyone's <code>challenge.js</code>:</strong></p>
         <pre>function calculateMonthlyPayment(principal, annualRate, years) {
   const monthlyRate = annualRate / 12;
   const months = years * 12;
@@ -349,25 +290,91 @@ Best result wins. You get ONE message.</pre>
                 / (Math.pow(1 + monthlyRate, months) - 1);
   return payment.toFixed(2);
 }</pre>
-        <p><strong>The bug:</strong> <code>annualRate / 12</code> should be <code>annualRate / 100 / 12</code>. The rate is passed as a percentage (e.g. <code>5</code> for 5%) but treated as a decimal. It's the same category as Bug 9 from the dashboard.</p>
+        <p><strong>The bug:</strong> <code>annualRate / 12</code> should be <code>annualRate / 100 / 12</code>. The rate is passed as a percentage (e.g. <code>5</code> for 5%) but treated as a decimal. Same category as Bug 9 from the dashboard.</p>
         <p><strong>Good Copilot Chat prompt to suggest if they're stuck:</strong></p>
         <pre>"Can you review this function for bugs? 
 Pay attention to how the interest rate is being used."</pre>
         <div class="tip tip-green">
-          <div class="tip-label green">Make the bug visible, not just readable</div>
-          Add <code>console.log(calculateMonthlyPayment(1000, 5, 1));</code> underneath, save, run <code>node challenge.js</code>. A real 5% loan wouldn't cost that much a month — seeing the actual wrong number is far more convincing than reading the code and taking someone's word for it.
+          <div class="tip-label green">Make the fix visible, not just readable</div>
+          Add <code>console.log(calculateMonthlyPayment(1000, 5, 1));</code> underneath, save, run <code>node challenge.js</code> in the terminal. A sensible monthly figure confirms the fix; still way too high means it isn't fixed yet.
         </div>
         <div class="tip tip-amber">
-          <div class="tip-label amber">Why this round matters</div>
-          This demonstrates that Copilot can review its own (or anyone else's) code. That's genuinely useful. It also reinforces Bug 9 from the dashboard exercise — same class of error. Watch for the "oh, that's the same thing!" moment.
+          <div class="tip-label amber">If Copilot seems reluctant or flags something odd</div>
+          Much less likely now the function is already in a real file — but if it happens, confirm the function is genuinely saved in <code>challenge.js</code> (not just pasted into the chat message) before asking Chat about it.
         </div>
-        <div class="tip tip-amber">
-          <div class="tip-label amber">If Copilot refuses, flags "SQL injection," or otherwise acts oddly</div>
-          This can happen if the code is asked about directly in the chat box without actually being saved in <code>challenge.js</code> first — Copilot's safety heuristics occasionally over-trigger on financial-sounding code (payment, principal, rate) with no real file behind it. The fix is exactly what the instructions say: make sure the function is genuinely pasted and saved in <code>challenge.js</code> before asking Chat to review it, not just typed into the chat message itself.
+      </div>
+    </div>
+
+    <!-- ROUND 1 RECAP -->
+    <div class="segment-block" id="r1recap">
+      <div class="seg-header">
+        <span class="seg-time">1:15–1:18</span>
+        <span class="seg-title">Round 1 recap</span>
+        <span class="seg-dur">3 min</span>
+      </div>
+      <div class="seg-body">
+        <div class="say">
+          <div class="say-label">Say this</div>
+          "Copilot wrote that bug. Then Copilot found and fixed it. That's not a contradiction — it's how the tool is most useful. Write fast, then review carefully. Use it in both directions."
+        </div>
+        <p>This also reinforces Bug 9 from the dashboard — same class of error. Watch for the "oh, that's the same thing!" moment.</p>
+      </div>
+    </div>
+
+    <!-- ROUND 2: COMMENT RACE -->
+    <div class="segment-block" id="r2">
+      <div class="seg-header">
+        <span class="seg-time">1:18–1:21</span>
+        <span class="seg-title">Round 2 — Comment Race</span>
+        <span class="seg-dur">3 min</span>
+      </div>
+      <div class="seg-body">
+        <div class="say">
+          <div class="say-label">Say this to intro the round</div>
+          "Round two. Same file, add this below the fixed function. Type this comment, use Copilot's inline suggestion to complete the code. First pair with a working, proven function wins."
+        </div>
+        <p><strong>Add to the same <code>challenge.js</code>:</strong></p>
+        <pre>// function that converts an amount in pounds to euros
+// use a rate of 1.17, rounded to 2 decimal places</pre>
+        <p><strong>What to look for:</strong></p>
+        <ul>
+          <li>Copilot suggests the function body — Tab to accept</li>
+          <li>Add <code>console.log(convertToEuros(100));</code> underneath, save</li>
+          <li>Run <code>node challenge.js</code> again — the new result prints too</li>
+        </ul>
+        <div class="tip tip-green">
+          <div class="tip-label green">If Copilot doesn't suggest automatically</div>
+          Tell them to press <code>Alt+\</code> (Windows) or <code>Option+\</code> (Mac) to trigger a suggestion manually.
         </div>
         <div class="say">
           <div class="say-label">After the round</div>
-          "Copilot wrote that bug. Then Copilot found it. That's not a contradiction — it's actually how the tool is most useful. Write fast, then review carefully. Use it in both directions."
+          "You didn't write a single line of code. You described what you wanted, and Copilot wrote it. Vague comment, vague code."
+        </div>
+      </div>
+    </div>
+
+    <!-- ROUND 3: BEST PROMPT -->
+    <div class="segment-block" id="r3">
+      <div class="seg-header">
+        <span class="seg-time">1:21–1:24</span>
+        <span class="seg-title">Round 3 — Best Prompt</span>
+        <span class="seg-dur">3 min</span>
+      </div>
+      <div class="seg-body">
+        <div class="say">
+          <div class="say-label">Say this</div>
+          "Round three. No winner by speed this time — winner by quality. One message in Copilot Chat. Just one. Get it to write a function that takes a name and a balance, and returns a personalised greeting."
+        </div>
+        <pre>One Copilot Chat message. Get it to write a function that:
+  → takes a person's name and their account balance
+  → returns a greeting like: "Hi Sarah! Your balance is £250.00"
+  → formats the balance with a £ sign and 2 decimal places
+
+Best result wins. You get ONE message.</pre>
+        <p><strong>After 3 minutes:</strong> add it to the same <code>challenge.js</code>, add <code>console.log(theirFunctionName("Sarah", 250));</code>, save, run <code>node challenge.js</code> to see the real greeting print. Ask 3–4 pairs to read their prompt out loud, then show the printed result. Group votes on the best one.</p>
+        <div class="say">
+          <div class="say-label">After the round</div>
+          "The difference between a great result and a mediocre one came down to how specific the prompt was. This is called prompt engineering."
         </div>
       </div>
     </div>
@@ -375,7 +382,7 @@ Pay attention to how the interest rate is being used."</pre>
     <!-- GOLDEN RULES -->
     <div class="segment-block" id="rules">
       <div class="seg-header">
-        <span class="seg-time">1:25–1:28</span>
+        <span class="seg-time">1:24–1:27</span>
         <span class="seg-title">The Three Golden Rules</span>
         <span class="seg-dur">3 min</span>
       </div>
@@ -401,7 +408,7 @@ Pay attention to how the interest rate is being used."</pre>
     <!-- BRIDGE -->
     <div class="segment-block" id="bridge">
       <div class="seg-header">
-        <span class="seg-time">1:28–1:30</span>
+        <span class="seg-time">1:27–1:30</span>
         <span class="seg-title">Bridge to Brainstorm</span>
         <span class="seg-dur">2 min</span>
       </div>

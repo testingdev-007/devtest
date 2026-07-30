@@ -85,7 +85,7 @@
 
       <div class="prob-row">
         <div class="prob-if">Level Up challenges "don't work" / no ghost text appears</div>
-        <div class="prob-then">Inline completions only work inside a Codespace, never on the github.com website itself. Confirm they're in their actual Codespace, and that <code>challenge.js</code> exists — right-click file panel → New File → name it <code>challenge.js</code> — before typing the challenge comment.</div>
+        <div class="prob-then">Inline completions only work inside a Codespace, never on the github.com website itself. Confirm they're in their actual Codespace and that <code>challenge.js</code> shows up in their file panel — it's pre-loaded in the repo, so if it's missing they may need to pull the latest changes or their Codespace predates the file being added.</div>
       </div>
 
       <div class="prob-row">
@@ -178,6 +178,11 @@
       <div class="prob-row">
         <div class="prob-if">Nova/Copilot gives wrong code and a student trusts it</div>
         <div class="prob-then">Best teaching moment available: "It's confident and wrong — same as the interest bug this morning. What test would prove it right or wrong?"</div>
+      </div>
+
+      <div class="prob-row">
+        <div class="prob-if">Nova's hint-based restraint is genuinely too much for one student</div>
+        <div class="prob-then">Each student has their own repo, so this only ever affects one person, not the room. On github.com, rename or delete their <code>.github/copilot-instructions.md</code> → have them rebuild the Codespace (command palette → "Rebuild Container") → Copilot reverts to plain, unrestricted behaviour for that student only. Re-add the file the same way afterward if you want it back.</div>
       </div>
     </div>
 
