@@ -73,7 +73,7 @@ The `.devcontainer` folder needs to be created with a file inside it. GitHub's u
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-vscode.live-server",
+        "ritwickdey.LiveServer",
         "GitHub.copilot",
         "GitHub.copilot-chat"
       ],
