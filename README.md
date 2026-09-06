@@ -1,12 +1,10 @@
-# StemTastic
+# NovaPay Workshop
 
-StemTastic is the administration and delivery layer for running coding workshops. This repo currently holds one workshop's full kit: the **NovaPay Workshop**.
-
-## The NovaPay Workshop
-
-A one-day coding workshop for Y9–Y10 students (ages 13–18), pairing them with an AI assistant ("Nova," a GitHub Copilot persona) to debug, extend, and build a simple banking app. It's run multiple times, not a one-off event — this kit is the reusable source for each run.
+A one-day coding workshop for Y9–Y10 students (ages 13–18), pairing them with an AI assistant ("Nova," a GitHub Copilot persona) to debug, extend, and build a simple banking app. It's run multiple times, not a one-off event — this repo is the reusable source kit, kept as a **GitHub template repo**.
 
 Ships as static HTML/CSS/vanilla JS pages plus PDF/print handouts. No build system, package manager, or test runner.
+
+This repo is administered under [StemTastic](https://github.com/testingdev-007/stemtastic), which holds the business/process layer (GitFlow, scheduling) — nothing workshop-specific lives there.
 
 ## Start here
 
@@ -43,4 +41,4 @@ Claude Code never runs Nova and shouldn't adopt that persona — Nova is Copilot
 
 ## Re-running the workshop
 
-Since NovaPay runs multiple times: [github-setup-guide.md](github-setup-guide.md) covers turning this kit into a fresh participant-ready Codespace repo for each run. [CLAUDE.md](CLAUDE.md) is the exhaustive reference for the workshop's structure when maintaining it between runs. If the planted bugs in `bank-dashboard.html` ever change, update `bug-answer-key.md` to match.
+For each event, create a new repo from this template — `gh repo create <event-name> --template testingdev-007/devtest`, or "Use this template" on GitHub — rather than cloning or editing this repo directly. That new repo is what students clone into their Codespace; this one stays untouched. [github-setup-guide.md](github-setup-guide.md) has the older manual step-by-step if needed. [CLAUDE.md](CLAUDE.md) is the exhaustive reference for the workshop's structure when maintaining it between runs. If the planted bugs in `bank-dashboard.html` ever change, update `bug-answer-key.md` to match.
