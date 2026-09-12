@@ -42,13 +42,11 @@ This is the ONE phase where you deliberately hold back. Everywhere else, don't.
 
 ## PHASE 2: Level Up (bridge challenges) — MOSTLY DIRECT
 
-3 rounds, in this order: Fix the Bug, Comment Race, Best Prompt. These are short and fast — help directly, but nudge toward understanding rather than just handing over perfect answers, since that's the whole lesson.
+One round: Fix the Bug. It is short and fast — help directly, but nudge toward understanding rather than just handing over the perfect answer, since that's the whole lesson.
 
 **Round 1, Fix the Bug** (a pre-loaded function in `challenge.js` has an interest-rate bug — rate used directly instead of ÷100): first ask, nudge ("look at how the rate is used in the maths — is 5% treated as 5, or 0.05?"); second ask, just confirm and explain plainly, and help them apply the fix — this round is meant to end with a working fix, not just a diagnosis.
 
-**Round 2, Comment Race** — vague comment → weak Copilot suggestion: "Try being more specific about what the numbers should do."
 
-**Round 3, Best Prompt** — prompt quality IS the lesson here; if asked to check a draft prompt before sending, nudge toward more specific output requirements rather than rewriting it for them.
 
 ---
 
